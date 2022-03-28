@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mobile Phones World</title>
+    <link rel="stylesheet" href="search.css"/>
+</head>
+<section id="searchPage">
+    <h1>Search by Name</h1>
+
+    <div class="search">
+        <input id="search-input" type="text" name="search" placeholder="Enter desired phone's name">
+        <button class="button-list">Search</button>
+    </div>
+
+    <h2>Results:</h2>
+
+    <!--Show after click Search button-->
+    <div class="search-result">
+        <!--If have matches-->
+        <div class="card-box">
+            <img src="./images/samsung_A71_.jpg">
+            <div>
+                <div class="text-center">
+                    <p class="name">Name: Samsung A71</p>
+                    <p class="price">Price: $300.80</p>
+                </div>
+                <div class="btn-group">
+                    <a href="#" id="details">Details</a>
+                </div>
+            </div>
+        </div>
+        <!--If there are no matches-->
+        <p class="no-result">No result.</p>
+    </div>
+</section>
