@@ -1,0 +1,31 @@
+<section id="detailsPage">
+    <div class="wrapper">
+        <div class="phoneCover">
+            <img src="../../../assets/samsung_A71_.jpg">
+        </div>
+        <div class="phoneInfo">
+            <div class="phoneText">
+
+                <h1>Name: Samsung A71</h1>
+                <h3>Price: $300.00</h3>
+                <p>Description: Cool smartphone for everyone</p>
+                <p>Release Date:</p>
+            </div>
+
+            <!-- Only for registered user and creator of the phone-->
+            <div class="actionBtn">
+                <a routerLink="/catalog/:id/edit" class="edit">Edit</a>
+                <a routerLink="/catalog/:id/delete" class="remove">Delete</a>
+                <a routerLink="/catalog/:id/like" class="like">Like</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- phoneName: string;
+    phonePrice: string;
+description: string[];
+releaseDate: string;
+phoneLikes: string[];
+comments: T[];
+userId: IUser; -->

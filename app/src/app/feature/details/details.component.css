@@ -1,0 +1,132 @@
+/* 
+
+.wrapper {
+    height: 400px;
+    width: 1000px;
+    margin: 30px auto;
+    border-radius: 7px 7px 7px 7px;
+    box-shadow: 0px 0px 1.5px 3px gray;
+    margin-bottom: 200px;
+    background-color: rgb(238, 237, 222);
+}
+
+.phoneCover {
+    float: left;
+    margin-top: 2%;
+    height: 90%;
+    width: auto;
+    margin-right: 20px;
+}
+
+.phoneCover img {
+    border-radius: 12px 0 0 7px;
+    height: 100%;
+}
+
+.phoneText {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+
+.phoneText h1 {
+    color:black;
+    font-weight: bolder;
+    font-size: 28px;
+}
+
+
+
+.phoneText h4 {
+    margin: 8px 0 10px 18px;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 0.2em;
+}
+
+.phoneText h5 {
+    margin: 8px 0 10px 14px;
+    font-size: 16px;
+    color: white;
+}
+
+.phoneText > p {
+    height: auto;
+    width: 100%;
+    color: black;
+    line-height: 1.6em;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.actionBtn  {
+    text-align: right;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    padding: 10%;
+}
+
+.actionBtn > a {
+    background-color: rgb(32, 50, 57);
+    font-size: 15px;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    height: 30px;
+    width: 35%;
+    margin-top: 20px; 
+    margin-left: 150px;
+    border: none;
+} */
+
+.wrapper {
+    height: 400px;
+    width: 700px;
+    margin: 30px auto;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px 0px;
+    margin-bottom: 200px;
+    background-color: rgb(238, 237, 222);
+    padding: 25px;
+}
+
+.phoneCover img {
+    float: left;
+    margin-top: 2%;
+    height: 20%;
+    width: 20%;
+    margin-right: 60px;
+    border-radius: 15px;
+    padding: 3%;
+}
+
+.actionBtn > a {
+    background-color: rgb(32, 50, 57);
+    font-size: 15px;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    height: 20px;
+    width: 35%;
+    margin-top: 20px; 
+    margin-left: 20px;
+    border: none;
+    text-decoration: none;
+}
+
+.actionBtn  {
+    text-align: right;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    padding: 7%;
+}
+
+.phoneText {
+    padding-left: 10px;
+    padding-top: 20px;
+}
+

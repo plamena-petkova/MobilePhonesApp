@@ -7,15 +7,12 @@ footer {
     font-size: 16px;
     justify-content: space-around;
     align-items: center;
-    margin-top: 0;
-    padding: 0 5px 0 3px;
-    margin: 0%;
-    color: white;
 }
 
 nav, 
 header {
     background-color: rgb(32, 50, 57) ;
+    margin: 0%;
 }
 
 nav a {
@@ -48,25 +45,6 @@ nav a {
 }
 
 
-
-/* nav a:hover {
-    cursor: pointer;
-    color: #45a29e;
-    font-weight: bolder;
-} */
-
-#welcomePage {
-    color: black;
-    font-size: 24px;
-    padding: 30px;
-    margin: 10px;
-}
-
-#welcomePage img {
-    width: 40%;
-    
-}
-
 nav > img {
     width: 60px;
     height: 70px;
@@ -76,85 +54,6 @@ nav > img {
 }
 
 
-.card-box {
-    box-shadow: 0px 0px 30px 0px;
-    padding: 20px;
-    margin-left: 120px;
-    background-position: right 35% bottom 45%;
-    box-sizing: border-box;
-    border-radius: 15px;
-    float: left;
-    height: 550px;
-    color: black;
-    font-weight: bold;
-    margin-bottom: 70px;
-    margin-top: 20px;
-    background-color: rgb(238, 237, 222);
-}
-
-.btn-group > a {
-	width: 200%;
-	height: 50px;
-	cursor: pointer;
-	border: none;
-    border-radius: 10px;
-	display: inline;
-	align-items: center;
-	justify-content: center;
-	background-color:rgb(20, 30, 39);
-    color: white;
-    font-size: 20px;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.btn-group > a:hover {
-	background-position: right;
-}
-
-
-
-
-
-.btn-group {
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-#catalogPage > p {
-    font-size: 40px;
-    color: #45a29e;
-    font-weight: bolder;
-    text-align: center;
-    margin-top: 30px;
-    text-shadow: 2px 2px black solid;
-}
-
-#search > input[type=text] {
-    border-radius: 3px;
-    box-shadow: none;
-    border: 1px solid #384049;
-    background: #15171b;
-    display: block;
-    width: 100%;
-    color: white;
-    transition: all 0.3s ease;
-    font-size: 1.2em;
-    line-height: 1;
-    padding: 0.3em 0.4em;
-    margin: 0 0.5em 1em 0;
-}
-
-#search > input[type=text]::-webkit-input-placeholder{
-    color: #343b44;
-    line-height: 1.2;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-
-input[type=text]:hover {
-    border-color: #4e5966;
-}
 
 
 

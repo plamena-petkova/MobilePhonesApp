@@ -1,8 +1,9 @@
-
-    <div class="profile">
-        <img src="./profile.png" alt="default user">
-        <h3>User Info:</h3>
-        <form action="">
+ <!-- <div class="profile">
+        <fieldset>
+        <img src="../../../assets/user1.png" alt="default user">
+        
+        <legend>User Info:</legend>
+        <form >
             <div class="flex">
                 <p>First Name: </p>
                 <input type="text" name="firstName" id="firstName" value="Johny">
@@ -15,8 +16,33 @@
                 <p>Email: </p>
                 <input type="email" name="email" id="email" value="john.doe@gmail.com">
             </div>
-            <button class="red-button">Cancel</button>
-            <button class="green-button">Save</button>
+            <button a routerLink="#" class="red-button">Cancel</button>
+            <button a routerLink="#" class="green-button">Save</button>
         </form>
-    </div>
+    </fieldset>
+    
+    </div> -->
 
+ <div class="profile">
+   <fieldset>
+     <img src="../../../assets/user1.png" alt="default user">
+
+     <legend>User Info:</legend>
+     <form>
+       <div class="flex">
+         <p>First Name: </p>
+         <p type="text" name="firstName" id="firstName" value="Johny">Plamena</p>
+       </div>
+       <div class="flex">
+         <p>Last Name: </p>
+         <p type="text" name="lastName" id="lastName" value="Johny">Petkova</p>
+       </div>
+       <div class="flex">
+         <p>Email: </p>
+         <p type="email" name="email" id="email" value="john.doe@gmail.com">pl.petkova@gmail.com</p>
+       </div>
+       <button a routerLink="#" class="red-button">Edit</button>
+     </form>
+   </fieldset>
+
+ </div>

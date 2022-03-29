@@ -1,10 +1,11 @@
 fieldset {
     padding: 30px;
     float: left;
-    margin-left: 450px;
+    margin-left: 350px;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
-    height: 580px;
+    height: 400px;
+    color: white;
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
@@ -55,15 +56,10 @@ input[type=text], input[type=password] {
 }
 
 
-
 .field span {
   color: black;
 }
 
-.bottom-field span {
-    color: black;
-  }
-  
 
 #loginPage, #registerPage {
   
@@ -71,8 +67,6 @@ input[type=text], input[type=password] {
   color: #aab2bd;
   padding: 1em 0 10em;
 } 
-
-
 
 
 select {
@@ -105,6 +99,7 @@ i {
     padding: 10px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+    /* background-color: #e9ecef; */
 }
 
 
@@ -133,3 +128,5 @@ p.error {
 input.error {
     border-left-color:#a8413f;
 }
+
+
