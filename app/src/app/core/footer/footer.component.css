@@ -1,0 +1,24 @@
+nav,
+footer {
+    background-color: rgb(32, 50, 57) ;
+    width: 100%;
+    display: flex;
+    font-size: 16px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0;
+    padding: 0 5px 0 3px;
+    margin: 0%;
+    color: white;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 15px;
+    text-align: center;
+    color: #c5c6c7;
+    font-weight: bold;
+}
