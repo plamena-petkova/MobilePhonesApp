@@ -1,42 +1,84 @@
-<form>
+<form  (ngSubmit)="registerHandle()" #registerForm="ngForm">
   <fieldset>
     <legend>Register</legend>
     <p class="field field-icon">
       <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-      <input id="email" class="email" name="email" type="text" placeholder="Email">
+      <input #email="ngModel" ngModel required email id="email" class="email" name="email" type="text" placeholder="Email">
     </p>
+
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p *ngIf="email.errors?.['required']" class="error">
+          Email is required!
+      </p>
+
+      <p *ngIf="email.errors?.['email']" class="error">
+          Email is not valid!
+      </p>
+  </ng-container>
 
     <p class="field field-icon">
       <label for="firstName"><span><i class="fas fa-user"></i></span></label>
-      <input id="firstName" class="firstName" name="firstName" type="text" placeholder="First Name">
+      <input #firstName="ngModel" ngModel required minlength="5" id="firstName" class="firstName" name="firstName" type="text" placeholder="First Name">
     </p>
+    <ng-container *ngIf="firstName.touched && firstName.invalid">
+    <p *ngIf="firstName.errors?.['required']" class="error">
+      First name is required!
+  </p>
+    <p *ngIf="firstName.errors?.['minlength']" class="error">
+      First Name must be more than 5 symbols!
+    </p>
+  </ng-container>
+
     <p class="field field-icon">
       <label for="lastName"><span><i class="fas fa-user"></i></span></label>
-      <input id="lastName" class="lastName" name="lastName" type="text" placeholder="Last Name">
+      <input #lastName="ngModel" ngModel required minlength="5" id="lastName" class="lastName" name="lastName" type="text" placeholder="Last Name">
     </p>
+    <ng-container *ngIf="lastName.touched && lastName.invalid">
+    <p *ngIf="lastName.errors?.['required']" class="error">
+      Last name is required!
+  </p>
+    <p *ngIf="lastName.errors?.['minlength']" class="error">
+      Last Name must be more than 5 symbols!
+    </p>
+  </ng-container>
 
-    <p class="error">
-        Message for Error
-      </p>
-
-
+<div ngModelGroup="passData" #passData="ngModelGroup">
     <p class="field field-icon">
       <label for="password"><span><i class="fas fa-lock"></i></span></label>
-      <input id="password" class="password" name="password" type="password" placeholder="Password">
+      <input name="password" ngModel required minlength="6"  id="password" class="password"  type="password" placeholder="Password">
     </p>
-
+    <ng-container *ngIf="passData.touched && passData.invalid" class="error">
+      <p *ngIf="passData.errors?.['required']" class="error">
+        Password is required!
+      </p>
+      <p *ngIf="passData.errors?.['minlength']" class="error">
+        Password must be more than 6 symbols!
+      </p>
+    </ng-container>
+ 
     <p class="field field-icon">
       <label for="conf-pass"><span><i class="fas fa-lock"></i></span></label>
-      <input id="conf-pass" class="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password">
+      <input ngModel required minlength="6" id="conf-pass" class="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password">
     </p>
 
-
-    <p class="error">
-        Message for Error
+    <ng-container *ngIf="passData.touched && passData.invalid" class="error">
+      <p *ngIf="passData.errors?.['required']" class="error">
+        Password is required!
       </p>
+      <p *ngIf="passData.errors?.['minlength']" class="error">
+        Password must be more than 6 symbols!
+      </p>
+    </ng-container>
+  </div>
 
 
-    <button type="submit" class="register">Register</button>
+
+ 
+
+ 
+
+    <button  type="submit" class="register">Register</button>
+    <!-- [disabled]="registerForm.invalid" -->
 
     <p class="bottom-field">
       <span>If you already have profile click <a href="/login">here</a></span>

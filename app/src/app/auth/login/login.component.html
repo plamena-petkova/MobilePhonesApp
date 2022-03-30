@@ -1,30 +1,38 @@
 
-<form>
+<form (ngSubmit)="loginHandle()" #loginForm="ngForm">
   <fieldset>
     <legend>Login</legend>
     <p class="field field-icon">
-      <label for="username"><span><i class="fas fa-user"></i></span></label>
-      <input type="text" name="username" id="username" class="error" placeholder="Email">
+      <label for="email"><span><i class="fas fa-user"></i></span></label>
+      <input ngModel #email="ngModel" required email type="text" name="email" id="email" placeholder="Email">
     </p>
+    <ng-container *ngIf="email.invalid && email.touched">
+      <p *ngIf="email.errors?.['required']" class="error">
+          Email is required!
+      </p>
 
-    <p class="error">
-      Message for Error
-    </p>
+      <p *ngIf="email.errors?.['email']" class="error">
+          Email is not valid!
+      </p>
+  </ng-container>
 
+  
 
     <p class="field field-icon">
       <label for="password"><span><i class="fas fa-lock"></i></span></label>
-      <input type="password" name="password" id="password" placeholder="Password">
+      <input ngModel #password="ngModel" required minlength="6" type="password" name="password" id="password" placeholder="Password">
     </p>
+    <ng-container *ngIf="password.invalid && password.touched">
+      <p *ngIf="password.errors?.['required']" class="error">
+          Password is required!
+      </p>
+  </ng-container>
 
-    <p class="error">
-      Message for Error
-    </p>
 
    
-    <button type="submit" class="login">Login</button>
+    <button [disabled]="loginForm.invalid" (click)="clearForm()" type="submit" class="login">Login</button>
     <p class="field">
-        <span>If you don't have profile click <a href="/register">here</a></span>
+        <span>If you don't have profile click <a routerLink="/register">here</a></span>
       </p>
 
     
