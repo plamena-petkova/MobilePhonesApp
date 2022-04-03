@@ -6,11 +6,6 @@ import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
-import { FormsModule, NgForm } from '@angular/forms';
-
-
-
-
 
 
 @NgModule({
@@ -23,10 +18,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    CatalogRoutingModule,
-    NgForm,
-    NgModule,
-    FormsModule
+    CatalogRoutingModule
   ],
   exports: []
 })

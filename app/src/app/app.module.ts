@@ -8,7 +8,7 @@ import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
 import { PhoneService } from './feature/phone.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -21,9 +21,7 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     AuthModule,
     FeatureModule,
-    HttpClientModule,
-    NgModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [PhoneService],
   bootstrap: [AppComponent]

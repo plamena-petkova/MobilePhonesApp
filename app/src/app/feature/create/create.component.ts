@@ -28,11 +28,9 @@ export class CreateComponent implements OnInit {
         console.error(error);
       }
     })
-
   }
-
-  navigateToHome() {
-    this.router.navigate(['/home']);
-  }
+  // navigateToHome() {
+  //   this.router.navigate(['/home']);
+  // }
 
 }
