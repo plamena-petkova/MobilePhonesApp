@@ -1,20 +1,24 @@
 <section class="createPage">
-    <form>
+    <form #newPhoneForm="ngForm" (ngSubmit)="submitNewPhone(newPhoneForm)">
         <fieldset>
             <legend>Add Mobile Phone</legend>
 
             <div class="container">
                 <label for="name" class="vhide"></label>
-                <input id="name" name="name" class="name" type="text" placeholder="Mobile Phone">
-
-                <label for="imgUrl" class="vhide"></label>
-                <input id="imgUrl" name="imgUrl" class="imgUrl" type="text" placeholder="Image Url">
+                <input #phoneName ngModel required id="name" name="name" class="name" type="text" placeholder="Mobile Phone">
 
                 <label for="price" class="vhide"></label>
-                <input id="price" name="price" class="price" type="text" placeholder="Price">
+                <input #phonePrice NgModel required id="price" name="price" class="price" type="text" placeholder="Price">
 
                 <label for="description" class="vhide"></label>
-                <textarea name="description" class="description" placeholder="Description"></textarea>
+                <textarea #description ngModel required name="description" class="description" placeholder="Description"></textarea>
+
+                <label for="releaseDate" class="vhide"></label>
+                <input #releaseDate ngModel required id="releaseDate" name="name" class="releaseDate" type="text" placeholder="Release Date">
+
+                <label for="imgUrl" class="vhide"></label>
+                <input #img ngModel required id="imgUrl" name="imgUrl" class="imgUrl" type="text" placeholder="Image Url">
+            
 
                 <button class="add-phone" type="submit"></button>
             </div>

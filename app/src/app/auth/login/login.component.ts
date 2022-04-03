@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log();
+    
   }
 
 

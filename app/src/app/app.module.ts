@@ -5,8 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
-import { CatalogRoutingModule } from './feature/catalog-routing.module';
 import { FeatureModule } from './feature/feature.module';
+import { PhoneService } from './feature/phone.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,9 +20,12 @@ import { FeatureModule } from './feature/feature.module';
     AppRoutingModule,
     CoreModule,
     AuthModule,
-    FeatureModule
+    FeatureModule,
+    HttpClientModule,
+    NgModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [PhoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

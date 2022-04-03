@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPhone } from 'src/app/core/interfaces';
+import { PhoneService } from '../phone.service';
 
 @Component({
   selector: 'app-catalog',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogComponent implements OnInit {
 
-  constructor() { }
+  phoneList!: IPhone[]
+
+  constructor(private phoneService: PhoneService) { }
 
   ngOnInit(): void {
+    this.phoneService.loadPhoneList().subscribe( phoneList => {
+      this.phoneList = phoneList;
+    })
   }
 
 }

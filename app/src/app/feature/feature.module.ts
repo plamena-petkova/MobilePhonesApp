@@ -6,6 +6,10 @@ import { DetailsComponent } from './details/details.component';
 import { CreateComponent } from './create/create.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
+import { FormsModule, NgForm } from '@angular/forms';
+
+
+
 
 
 
@@ -15,11 +19,15 @@ import { CatalogRoutingModule } from './catalog-routing.module';
     CatalogCardComponent,
     DetailsComponent,
     CreateComponent,
-    CommentsListComponent
+    CommentsListComponent,
   ],
   imports: [
     CommonModule,
-    CatalogRoutingModule
-  ]
+    CatalogRoutingModule,
+    NgForm,
+    NgModule,
+    FormsModule
+  ],
+  exports: []
 })
 export class FeatureModule { }
