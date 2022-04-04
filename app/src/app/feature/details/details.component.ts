@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPhone } from 'src/app/core/interfaces';
 import { PhoneService } from '../phone.service';
 // import { ActivatedRoute } from '@angular/router';
@@ -13,12 +13,13 @@ export class DetailsComponent implements OnInit {
   
   phone!:IPhone
 
-  constructor(private phoneService:PhoneService, private activatedRoute: ActivatedRoute) { }
+  constructor(private phoneService:PhoneService,
+              private activatedRoute: ActivatedRoute, 
+              private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       const phoneId = params['phoneId'];
-      console.log(phoneId);
       this.phoneService.loadPhoneById$(phoneId).subscribe(phone => {
         this.phone = phone;
         // this.canSubscribe = !this.phone.subscribers.includes('5fa64b162183ce1728ff371d');
@@ -26,4 +27,16 @@ export class DetailsComponent implements OnInit {
     })
   }
 
-}
+  deletePhone() {
+    this.activatedRoute.params.subscribe(params => {
+      const phoneId = params['phoneId'];
+      this.phoneService.deleteById$(phoneId).subscribe(() => {
+        this.router.navigate(['/data']);
+          });
+      });
+
+    
+      
+    }
+}  
+  

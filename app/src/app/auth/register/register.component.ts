@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IUser } from 'src/app/core/interfaces';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,9 +12,12 @@ import { NgForm, NgModel } from '@angular/forms';
 export class RegisterComponent implements OnInit, AfterViewInit {
 
   @ViewChild('registerForm') registerForm!: NgForm;
-  @ViewChild('passData') passData! : NgModel
+
+  
  
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
+  
+  
   ngAfterViewInit(): void {
     
   }
@@ -22,7 +28,21 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
 
   registerHandle() : void {
-    console.log(this.passData)
+    const {email, firstName, lastName, password} = this.registerForm.value;
+
+    const body: IUser = {
+      email: email,
+      firstName: firstName,
+      lastName:lastName,
+      password: password
+    }
+
+    this.authService.register$(body).subscribe(() => {
+      this.router.navigate(['/data']);
+    })
+
+
+
   }
 
 }

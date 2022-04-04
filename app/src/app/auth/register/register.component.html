@@ -42,30 +42,30 @@
     </p>
   </ng-container>
 
-<div ngModelGroup="passData" #passData="ngModelGroup">
+<div>
     <p class="field field-icon">
       <label for="password"><span><i class="fas fa-lock"></i></span></label>
-      <input name="password" ngModel required minlength="6"  id="password" class="password"  type="password" placeholder="Password">
+      <input #password="ngModel" name="password" ngModel required minlength="6"  id="password" class="password"  type="password" placeholder="Password">
     </p>
-    <ng-container *ngIf="passData.touched && passData.invalid" class="error">
-      <p *ngIf="passData.errors?.['required']" class="error">
+    <ng-container *ngIf="password.touched && password.invalid" class="error">
+      <p *ngIf="password.errors?.['required']" class="error">
         Password is required!
       </p>
-      <p *ngIf="passData.errors?.['minlength']" class="error">
+      <p *ngIf="password.errors?.['minlength']" class="error">
         Password must be more than 6 symbols!
       </p>
     </ng-container>
  
     <p class="field field-icon">
       <label for="conf-pass"><span><i class="fas fa-lock"></i></span></label>
-      <input ngModel required minlength="6" id="conf-pass" class="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password">
+      <input #confPass="ngModel" ngModel required minlength="6" id="conf-pass" class="conf-pass" name="conf-pass" type="password" placeholder="Confirm Password">
     </p>
 
-    <ng-container *ngIf="passData.touched && passData.invalid" class="error">
-      <p *ngIf="passData.errors?.['required']" class="error">
+    <ng-container *ngIf="confPass.touched && confPass.invalid" class="error">
+      <p *ngIf="confPass.errors?.['required']" class="error">
         Password is required!
       </p>
-      <p *ngIf="passData.errors?.['minlength']" class="error">
+      <p *ngIf="confPass.errors?.['minlength']" class="error">
         Password must be more than 6 symbols!
       </p>
     </ng-container>

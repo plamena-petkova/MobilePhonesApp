@@ -1,4 +1,4 @@
-<div *ngIf="!!phone">
+<div *ngIf="!!phone; else loadingIndicator">
 <section id="detailsPage">
     <div class="wrapper">
         <div class="phoneCover">
@@ -16,14 +16,15 @@
             <!-- Only for registered user and creator of the phone-->
             <div class="actionBtn">
                 <a routerLink="/data/:id/edit" class="edit">Edit</a>
-                <a routerLink="/data/:id/delete" class="remove">Delete</a>
+                <a (click)="deletePhone()" [routerLink]="['/data/details/', phone._id]" class="remove">Delete</a>
                 <a routerLink="/data/:id/like" class="like">Like</a>
             </div>
         </div>
     </div>
 </section>
-<!-- <ng-template #loadingIndicator>Loading...</ng-template> -->
+
 </div>
+<ng-template #loadingIndicator>Loading...</ng-template>
 
 
 

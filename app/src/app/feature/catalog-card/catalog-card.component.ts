@@ -13,7 +13,7 @@ export class CatalogCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.phone.phoneName)
+  
   }
 
 }
