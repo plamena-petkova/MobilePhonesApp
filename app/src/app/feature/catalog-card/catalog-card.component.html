@@ -1,16 +1,15 @@
-<!-- <div class="card-box">
-    <img src="./images/samsung_A71_.jpg">
+<div class="card-box">
+    <img src="">
 <div>
         <div class="text-center">
-            <p class="name">Name: Samsung A71</p>
-            <p class="img">Samsung</p>
-            <p class="price">Price: $300.80</p>
-            <p class="description">Smartphone</p>
+            <p class="name">Name: {{phone.phoneName}}</p>
+            <p class="img">{{phone.img}}</p>
+            <p class="price">Price: {{phone.phonePrice}}$</p>
+            <p class="description">{{phone.description}}</p>
         </div>
         <div class="btn-group">
-            <a href="#" id="details">Details</a>
+            <a [routerLink]="['/data/details/', phone._id]" id="details">Details</a>
         </div>
     </div>
-</div> -->
+</div>
 
-<app-catalog-card>{{phone}}</app-catalog-card>

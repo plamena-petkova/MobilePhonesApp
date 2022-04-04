@@ -6,15 +6,15 @@ import { DetailsComponent } from "./details/details.component";
 
 const routes: Routes = [
     {
-        path: 'catalog',
+        path: 'data',
         component: CatalogComponent
     },
     {
-        path: 'catalog/create',
+        path: 'data/create',
         component: CreateComponent
     },
     {
-        path: 'catalog/:phoneId',
+        path: 'data/details/:phoneId',
         component: DetailsComponent
     }
    

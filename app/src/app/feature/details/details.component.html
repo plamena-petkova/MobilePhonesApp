@@ -1,26 +1,31 @@
+<div *ngIf="!!phone">
 <section id="detailsPage">
     <div class="wrapper">
         <div class="phoneCover">
-            <img src="../../../assets/samsung_A71_.jpg">
+            <img src="">
         </div>
         <div class="phoneInfo">
             <div class="phoneText">
 
-                <h1>Name: Samsung A71</h1>
-                <h3>Price: $300.00</h3>
-                <p>Description: Cool smartphone for everyone</p>
-                <p>Release Date:</p>
+                <h1>Name: {{phone.phoneName}}</h1>
+                <h3>Price: ${{phone.phonePrice}}</h3>
+                <p>Description: {{phone.description}}</p>
+                <p>Release Date:{{phone.releaseDate}}</p>
             </div>
 
             <!-- Only for registered user and creator of the phone-->
             <div class="actionBtn">
-                <a routerLink="/catalog/:id/edit" class="edit">Edit</a>
-                <a routerLink="/catalog/:id/delete" class="remove">Delete</a>
-                <a routerLink="/catalog/:id/like" class="like">Like</a>
+                <a routerLink="/data/:id/edit" class="edit">Edit</a>
+                <a routerLink="/data/:id/delete" class="remove">Delete</a>
+                <a routerLink="/data/:id/like" class="like">Like</a>
             </div>
         </div>
     </div>
 </section>
+<!-- <ng-template #loadingIndicator>Loading...</ng-template> -->
+</div>
+
+
 
 <!-- phoneName: string;
     phonePrice: string;
