@@ -8,12 +8,12 @@
                     <!--All user-->
                     <li><a routerLink="/data/">Catalog</a></li>
                     <!--Only guest-->
-                    <li><a routerLink="/login">Login</a></li>
+                    <li><a routerLink="/auth/login">Login</a></li>
                     <li><a routerLink="/auth/register">Register</a></li>
                     <!--Only user-->
                     <li><a routerLink="/data/create">Add mobile phone</a></li>
                     <li><a routerLink="/profile">My Profile</a></li>
-                    <li><a routerLink="/logout">Logout</a></li>
+                    <li><a href="#" (click)="logoutHandler()">Logout</a></li>
                 </ul>
             
             </nav>

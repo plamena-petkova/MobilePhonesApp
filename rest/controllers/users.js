@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {register} = require('../services/userService');
+const {register, login, logout} = require('../services/userService');
 const mapErrors = require('../utils/mapper');
 
 router.post('/register', async (req, res) => {
@@ -18,14 +18,20 @@ router.post('/register', async (req, res) => {
  }
 });
 
-router.post('/login', (req, res) => {
-    console.log('login');
-    res.end();
+router.post('/login', async (req, res) => {
+    try {
+        const result = await login(req.body.email.trim(), req.body.password.trim());
+        res.json(result);
+    } catch(err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({message: error})
+
+    }
 });
 
 router.get('/logout', (req, res) => {
-    console.log('logout');
-    res.end();
+    
 });
 
 
