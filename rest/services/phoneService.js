@@ -11,7 +11,7 @@ async function create(phone) {
     return result;
 }
 
-async function getById(id) {
+function getById(id) {
     return Phone.findById(id);
 }
 

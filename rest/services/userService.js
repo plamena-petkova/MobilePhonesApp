@@ -55,6 +55,20 @@ function createSession(user) {
             _id:user._id
         }, JWT_SECRET)
     };
+};
+
+
+function verifySession(token) {
+    if(blackList.includes(token)) {
+        throw new Error('Token is invalidated');
+    }
+    const payload = jwt.verify(token, JWT_SECRET);
+
+    return {
+        email: payload.email,
+        _id: payload._id,
+        token
+    }
 }
 
 
@@ -63,5 +77,6 @@ function createSession(user) {
 module.exports = {
     register,
     login,
-    logout
+    logout,
+    verifySession
 }

@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const catalogController = require('./controllers/catalog')
-const usersController = require('./controllers/users')
+const usersController = require('./controllers/users');
+const auth = require('./middlewares/auth');
 
 start();
 
@@ -33,7 +34,8 @@ async function start() {
         "preflightContinue": false,
         "optionsSuccessStatus": 204,
         credentials: true
-    }))
+    }));
+    app.use(auth());
     app.use('/data', catalogController);
     app.use('/auth', usersController)
     

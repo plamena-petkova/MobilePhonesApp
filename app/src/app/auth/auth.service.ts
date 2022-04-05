@@ -1,14 +1,20 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {Observable} from "rxjs"
-import { map, tap } from "rxjs/operators";
+import {BehaviorSubject, Observable} from "rxjs"
+import { map } from "rxjs/operators";
 import { IUser } from "../core/interfaces";
 
 @Injectable()
 
 export class AuthService {
 
-  currentUser!:IUser
+  private _currentUser = new BehaviorSubject<IUser>(undefined!);
+
+  currentUser$ = this._currentUser.asObservable();
+  isLoggedIn$ = this.currentUser$.pipe(map(user => !!user))
+
+
+  // currentUser!:IUser
     
     constructor(private http: HttpClient) {}
 
@@ -20,14 +26,23 @@ export class AuthService {
       return this.http
         .post<IUser>(`http://localhost:3000/auth/login`, userData, { withCredentials: true, observe: 'response' })
         .pipe(
-          tap(response => console.log(response)),
+          // tap(response => console.log(response)),
           map(response => response.body!),
-          tap(user => this.currentUser = user)
+          // tap(user => this.currentUser = user)
         )
     }
 
-    logout(): void {
-      
+    logout$(): Observable<void> {
+      return this.http
+      .post<void>(`http://localhost:3000/auth/logout`, {}, { withCredentials: true })
+    }
+
+    handleLogin(newUser: IUser) {
+      this._currentUser.next(newUser);
+    }
+  
+    handleLogout() {
+      this._currentUser.next(undefined!);
     }
 
 }
