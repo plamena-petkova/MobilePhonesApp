@@ -25,7 +25,6 @@ export class CreateComponent implements OnInit, AfterViewInit {
   }
 
   submitNewPhone(newPhoneForm: NgForm): void {
-    console.log(newPhoneForm.value);
     this.phoneService.addPhone$(newPhoneForm.value).subscribe({
       next: (newPhoneForm) => {
         console.log(newPhoneForm);

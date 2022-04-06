@@ -1,10 +1,10 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs"
 import { map } from "rxjs/operators";
 import { IUser } from "../core/interfaces";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 
 export class AuthService {
 
@@ -26,10 +26,11 @@ export class AuthService {
       return this.http
         .post<IUser>(`http://localhost:3000/auth/login`, userData, { withCredentials: true, observe: 'response' })
         .pipe(
-          // tap(response => console.log(response)),
-          map(response => response.body!),
+          // // tap(response => console.log(response)),
+          map(response => response.body!)
           // tap(user => this.currentUser = user)
         )
+        
     }
 
     logout$(): Observable<void> {
@@ -39,6 +40,7 @@ export class AuthService {
 
     handleLogin(newUser: IUser) {
       this._currentUser.next(newUser);
+      console.log('New User', newUser);
     }
   
     handleLogout() {

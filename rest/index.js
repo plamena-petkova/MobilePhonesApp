@@ -1,12 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
+const auth = require('./middlewares/auth');
 
 // const cors = require('./middlewares/cors');
 const cors = require('cors');
 
 const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
-const auth = require('./middlewares/auth');
+
 
 start();
 
@@ -29,15 +32,19 @@ async function start() {
 
     app.use(cors({
         origin: ['http://localhost:4200'],
-        "methods": "GET,PUT,POST, DELETE",
+        "methods": "GET,PUT,POST,DELETE",
         "headers": ["Content-Type", "X-Authorization"],
         "preflightContinue": false,
         "optionsSuccessStatus": 204,
         credentials: true
     }));
+    app.use(cookieParser(cookieSecret))
     app.use(auth());
     app.use('/data', catalogController);
-    app.use('/auth', usersController)
+    app.use('/auth', usersController);
+    
+
+    
     
 
     app.get('/', (req, res)=> res.json({message:'Rest service operational'}))

@@ -16,6 +16,10 @@ const routes: Routes = [
     {
         path: 'data/details/:phoneId',
         component: DetailsComponent
+    },
+    {
+        path: 'data/edit/:phoneId',
+        component: DetailsComponent
     }
    
 ]

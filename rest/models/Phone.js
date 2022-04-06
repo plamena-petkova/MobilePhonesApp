@@ -8,8 +8,7 @@ const schema = new Schema({
     releaseDate:{type: String,required: [true, 'Image is required']},
     owner: {type: ObjectId, ref: 'User'}
     // phoneLikes: {type: String},
-    // comments: {type: String},
-    // userId: IUser;
+    // comments: {type: String}
 })
 
 

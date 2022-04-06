@@ -5,19 +5,19 @@ const api = require('../services/phoneService');
 const mapErrors = require('../utils/mapper');
 
 router.get('/', async (req, res) => {
-    console.log(req.user);
     const data = await api.getAll();
     res.json(data);
 });
 
-router.post('/create', isAuth(), async (req, res) => {
+router.post('/create', async(req, res) => {
+    // isAuth()
     const phone = {
         phoneName: req.body.phoneName,
         phonePrice: req.body.phonePrice,
         description: req.body.description,
         img: req.body.img,
         releaseDate:req.body.releaseDate,
-        owner: req.user._id
+        // owner: req.user._id
         // phoneLikes: req.body.phoneLikes,
         // comments: req.body.comments,
         // userId: IUser;
@@ -32,13 +32,14 @@ router.post('/create', isAuth(), async (req, res) => {
     }
 });
 
-router.get('/details/:id', preload(), (req, res) => {
-    const phone = res.locals.phone;
-    // const phone = await api.getById(req.params.id);
+router.get('/details/:id', preload(), isAuth(), async (req, res) => {
+    // const phone = res.locals.phone;
+    const phone = await api.getById(req.params.id);
     res.json(phone);
 });
 
-router.put('/:id', preload(), isOwner(), async (req, res) => {
+router.put('/:id', preload(), async (req, res) => {
+    // preload(), isOwner()
     const phoneId = req.params.id;
     const phone = {
         phoneName: req.body.phoneName,
@@ -58,7 +59,8 @@ router.put('/:id', preload(), isOwner(), async (req, res) => {
     }
 });
 
-router.delete('/details/:id', preload(), isOwner(), async (req, res) => {
+router.delete('/details/:id', preload(), async (req, res) => {
+    // isOwner()
     
     try {
         const phoneId = req.params.id;

@@ -4,17 +4,25 @@
 
                 <img src="../../../assets/smartphone.jpg">
                 <a routerLink="/">Home</a>
+                
                 <ul>
                     <!--All user-->
-                    <li><a routerLink="/data/">Catalog</a></li>
+                    
+                    <div *ngIf="!(isLoggedIn$ | async)">
                     <!--Only guest-->
+                    <li><a routerLink="/data/">Catalog</a></li>
                     <li><a routerLink="/auth/login">Login</a></li>
                     <li><a routerLink="/auth/register">Register</a></li>
+                    </div>
+                    <div *ngIf="(isLoggedIn$ | async)">
                     <!--Only user-->
+                    <li><a routerLink="/data/">Catalog</a></li>
                     <li><a routerLink="/data/create">Add mobile phone</a></li>
-                    <li><a routerLink="/profile">My Profile</a></li>
+                    <li><a routerLink="/auth/profile">{{(currentUser$ | async)?.firstName}}'s Profile</a></li>
                     <li><a href="javascript:void(0);" (click)="logoutHandler()">Logout</a></li>
+                    </div>
                 </ul>
             
+           
             </nav>
         </header>

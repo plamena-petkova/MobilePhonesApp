@@ -13,6 +13,8 @@ export class DetailsComponent implements OnInit {
   
   phone!:IPhone
 
+  isInEditMode: boolean = false;
+
   constructor(private phoneService:PhoneService,
               private activatedRoute: ActivatedRoute, 
               private router: Router) { }
@@ -37,6 +39,15 @@ export class DetailsComponent implements OnInit {
 
     
       
+    }
+
+
+    editPhone() {
+      this.isInEditMode = true;
+    }
+
+    updatePhone() {
+      console.log('The update is hit')
     }
 }  
   

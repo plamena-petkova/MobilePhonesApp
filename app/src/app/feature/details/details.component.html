@@ -1,27 +1,69 @@
 <div *ngIf="!!phone; else loadingIndicator">
-<section id="detailsPage">
-    <div class="wrapper">
+  <ng-container *ngIf="!isInEditMode">
+    <section id="detailsPage">
+      <div class="wrapper">
         <div class="phoneCover">
-            <img src="">
+          <img src="">
         </div>
         <div class="phoneInfo">
-            <div class="phoneText">
+          <div class="phoneText">
 
-                <h1>Name: {{phone.phoneName}}</h1>
-                <h3>Price: ${{phone.phonePrice}}</h3>
-                <p>Description: {{phone.description}}</p>
-                <p>Release Date:{{phone.releaseDate}}</p>
-            </div>
+            <h1>Name: {{phone.phoneName}}</h1>
+            <h3>Price: ${{phone.phonePrice}}</h3>
+            <p>Description: {{phone.description}}</p>
+            <p>Release Date:{{phone.releaseDate}}</p>
+          </div>
 
-            <!-- Only for registered user and creator of the phone-->
-            <div class="actionBtn">
-                <a routerLink="/data/:id/edit" class="edit">Edit</a>
-                <a (click)="deletePhone()" [routerLink]="['/data/details/', phone._id]" class="remove">Delete</a>
-                <a routerLink="/data/:id/like" class="like">Like</a>
-            </div>
+          <!-- Only for registered user and creator of the phone-->
+          <div class="actionBtn">
+            <a (click)="editPhone()" [routerLink]="['/data/edit/', phone._id]" class="edit">Edit</a>
+            <a (click)="deletePhone()" [routerLink]="['/data/details/', phone._id]" class="remove">Delete</a>
+            <a routerLink="/data/:id/like" class="like">Like</a>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+  </ng-container>
+
+
+
+</div>
+
+
+<div *ngIf="!!phone; else loadingIndicator">
+  <ng-container *ngIf="isInEditMode">
+      <form #editForm="ngForm" (ngSubmit)="updatePhone()">
+    <section id="detailsPage">
+      <div class="wrapper">
+        <div class="phoneCover">
+          <img src="">
+        </div>
+        <div class="phoneInfo">
+          <div class="phoneText">
+
+            <h1>Name:</h1>
+            <input #phoneName="ngModel" type="text" name="phoneName" ngModel required minlength="5" id="phoneName" value="phone.phoneName">
+            <h3>Price:</h3> 
+            <input type="text" name="phonePrice" ngModel required minlength="5" id="phonePrice" value="{{phone.phonePrice}}">
+            <p>Description:</p>
+            <input type="text" name="description" ngModel required minlength="5" id="description" value="{{phone.description}}">
+            <p>Release Date:</p>
+            <input type="text" name="releaseDate" ngModel required minlength="5" id="releaseDate" value="{{phone.releaseDate}}">
+          </div>
+
+          <!-- Only for registered user and creator of the phone-->
+          <div class="actionBtn">
+            <a (click)="updatePhone()" [routerLink]="['/data/edit/', phone._id]" class="edit">Edit</a>
+            <a (click)="deletePhone()" [routerLink]="['/data/details/', phone._id]" class="remove">Delete</a>
+            <a routerLink="/data/:id/like" class="like">Like</a>
+          </div>
+        </div>
+      </div>
+    </section>
+</form>
+  </ng-container>
+
+
 
 </div>
 <ng-template #loadingIndicator>Loading...</ng-template>

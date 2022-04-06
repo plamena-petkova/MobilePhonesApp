@@ -130,3 +130,26 @@
     padding-top: 20px;
 }
 
+
+input, input + label > i {
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid #384049;
+    background: rgb(238, 237, 222);
+    display: block;
+    width: 100%;
+    color: black;
+    margin-right: 80%;
+  }
+  
+  input[type=text], input[type=password] {
+      width: auto;
+      font-size: 1.2em;
+      line-height: 1;
+      flex: 0 1 100%;
+      border: 1px solid;
+      padding: 5px;
+      border-left: 3px solid #42a948;
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+  }

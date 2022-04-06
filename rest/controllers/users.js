@@ -21,8 +21,9 @@ router.post('/register', isGuest(), async (req, res) => {
 
 router.post('/login', isGuest(), async (req, res) => {
     try {
-        const result = await login(req.body.email.trim(), req.body.password.trim());
-        res.json(result);
+        const user = await login(req.body.email.trim(), req.body.password.trim()); 
+        // console.log(user.accessToken);  
+        res.json(user);
     } catch(err) {
         console.error(err.message);
         const error = mapErrors(err);
@@ -36,6 +37,8 @@ router.post('/logout', (req, res) => {
     res.status(204).end();
 
 });
+
+
 
 
 
