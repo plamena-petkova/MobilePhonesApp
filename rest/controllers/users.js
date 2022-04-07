@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { isGuest } = require('../middlewares/guards');
-const {register, login, logout} = require('../services/userService');
+const {register, login, logout, verifySession} = require('../services/userService');
 const mapErrors = require('../utils/mapper');
 
 router.post('/register', isGuest(), async (req, res) => {
@@ -10,6 +10,8 @@ router.post('/register', isGuest(), async (req, res) => {
     }
 
     const result = await register(req.body.firstName.trim(), req.body.lastName.trim(), req.body.email.trim().toLowerCase(), req.body.password.trim());
+        const token = result.accessToken;
+        res.cookie('auth-cookie', token);
     res.status(201).json(result)
 
  } catch(err) {
@@ -19,10 +21,12 @@ router.post('/register', isGuest(), async (req, res) => {
  }
 });
 
-router.post('/login', isGuest(), async (req, res) => {
+router.post('/login',  async (req, res) => {
     try {
         const user = await login(req.body.email.trim(), req.body.password.trim()); 
-        // console.log(user.accessToken);  
+        // const token = user.accessToken;
+        // console.log(token);
+        // res.cookie('auth-cookie', token);
         res.json(user);
     } catch(err) {
         console.error(err.message);

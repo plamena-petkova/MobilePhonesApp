@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
 const User = require('../models/User');
 
@@ -35,10 +35,17 @@ async function register(firstName, lastName, email, password) {
 
 
 async function login(email, password) {
+
+
+ 
+
+
     const user = await User.findOne({email: new RegExp(`^${email}$`, 'i')});
+
 
     if(!user) {
         throw new Error('Incorrect email or password!');
+        
     }
 
     const match = await bcrypt.compare(password, user.hashedPassword);
@@ -49,13 +56,12 @@ async function login(email, password) {
         throw new Error('Incorrect email or password!');
     }
 
-
     return {
         firstName: user.firstName,
         lastName: user.lastName,
         email:user.email,
         _id: user._id,
-        accessToken: createToken(user)
+        accessToken: createToken(user),
     }
 
 
@@ -104,12 +110,11 @@ function verifySession(token) {
         throw new Error('Token is invalidated');
     }
     const payload = jwt.verify(token, JWT_SECRET);
-    
 
     return {
         email: payload.email,
         _id: payload._id,
-        accessToken
+        token
     }
 }
 

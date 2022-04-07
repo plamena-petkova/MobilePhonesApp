@@ -10,7 +10,10 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/create', async(req, res) => {
-    // isAuth()
+    // isAuth()       
+
+
+
     const phone = {
         phoneName: req.body.phoneName,
         phonePrice: req.body.phonePrice,
@@ -32,7 +35,8 @@ router.post('/create', async(req, res) => {
     }
 });
 
-router.get('/details/:id', preload(), isAuth(), async (req, res) => {
+router.get('/details/:id', preload(), async (req, res) => {
+    // , isAuth()
     // const phone = res.locals.phone;
     const phone = await api.getById(req.params.id);
     res.json(phone);

@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
 import { PhoneService } from './feature/phone.service';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 
 

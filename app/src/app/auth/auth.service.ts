@@ -11,7 +11,8 @@ export class AuthService {
   private _currentUser = new BehaviorSubject<IUser>(undefined!);
 
   currentUser$ = this._currentUser.asObservable();
-  isLoggedIn$ = this.currentUser$.pipe(map(user => !!user))
+  isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
+  isLoggedIn: boolean = false;
 
 
   // currentUser!:IUser
@@ -26,10 +27,9 @@ export class AuthService {
       return this.http
         .post<IUser>(`http://localhost:3000/auth/login`, userData, { withCredentials: true, observe: 'response' })
         .pipe(
-          // // tap(response => console.log(response)),
           map(response => response.body!)
-          // tap(user => this.currentUser = user)
         )
+          
         
     }
 
@@ -40,7 +40,6 @@ export class AuthService {
 
     handleLogin(newUser: IUser) {
       this._currentUser.next(newUser);
-      console.log('New User', newUser);
     }
   
     handleLogout() {

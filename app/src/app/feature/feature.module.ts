@@ -7,6 +7,7 @@ import { CreateComponent } from './create/create.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { FormsModule } from '@angular/forms';
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CatalogRoutingModule,
-    FormsModule
+    FormsModule,
+    PagesModule
   ],
   exports: []
 })

@@ -1,5 +1,10 @@
+
+
 function isAuth() {
     return (req, res, next) => {
+       
+        console.log('Got In');
+        
         if(req.user) {
             next();
         } else {
