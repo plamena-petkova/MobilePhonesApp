@@ -3,13 +3,13 @@
     <section id="detailsPage">
       <div class="wrapper">
         <div class="phoneCover">
-          <img src="">
+          <img src="{{phone.img}}">
         </div>
         <div class="phoneInfo">
           <div class="phoneText">
 
-            <h1>Name: {{phone.phoneName}}</h1>
-            <h3>Price: ${{phone.phonePrice}}</h3>
+            <p>Name: {{phone.phoneName}}</p>
+            <p>Price: ${{phone.phonePrice}}</p>
             <p>Description: {{phone.description}}</p>
             <p>Release Date:{{phone.releaseDate}}</p>
           </div>
@@ -24,36 +24,56 @@
       </div>
     </section>
   </ng-container>
-
-
-
 </div>
 
 
 <div *ngIf="!!phone; else loadingIndicator">
-  <ng-container *ngIf="isInEditMode">
-      <form #editForm="ngForm" (ngSubmit)="updatePhone()">
+  <ng-container *ngIf="isInEditMode" >
+      <form #editForm="ngForm">
     <section id="detailsPage">
       <div class="wrapper">
         <div class="phoneCover">
-          <img src="">
+          <img #img src="{{phone.img}}">
         </div>
         <div class="phoneInfo">
           <div class="phoneText">
 
-            <h1>Name:</h1>
-            <input #phoneName="ngModel" type="text" name="phoneName" ngModel required minlength="5" id="phoneName" value="phone.phoneName">
-            <h3>Price:</h3> 
-            <input type="text" name="phonePrice" ngModel required minlength="5" id="phonePrice" value="{{phone.phonePrice}}">
-            <p>Description:</p>
-            <input type="text" name="description" ngModel required minlength="5" id="description" value="{{phone.description}}">
-            <p>Release Date:</p>
-            <input type="text" name="releaseDate" ngModel required minlength="5" id="releaseDate" value="{{phone.releaseDate}}">
+            <label>Name:</label>
+            <input #phoneName="ngModel" type="text" name="phoneName" ngModel required id="phoneName" value="phone name">
+            <ng-container *ngIf="phoneName.touched && phoneName.invalid" class="error">
+              <p *ngIf="phoneName.errors?.['required']" class="error">
+                Phone name is required!
+              </p>
+            </ng-container>
+            <label>Price:</label> 
+            <input #phonePrice="ngModel" type="text" name="phonePrice" ngModel required id="phonePrice" value="phone price">
+            <ng-container *ngIf="phonePrice.touched && phonePrice.invalid" class="error">
+              <p *ngIf="phonePrice.errors?.['required']" class="error">
+                Phone price is required!
+              </p>
+            </ng-container>
+            
+            <label>Description:</label>
+            <input #description="ngModel" type="text" name="description" ngModel required minlength="10" id="description" value="description">
+            <ng-container *ngIf="description.touched && description.invalid" class="error">
+              <p *ngIf="description.errors?.['required']" class="error">
+                Phone price is required!
+              </p>
+            </ng-container>
+            
+            <label>Release Date:</label>
+            <input #releaseDate="ngModel" type="text" name="releaseDate" ngModel required id="releaseDate" value="release date">
+            <ng-container *ngIf="releaseDate.touched && releaseDate.invalid" class="error">
+              <p *ngIf="releaseDate.errors?.['required']" class="error">
+                Phone price is required!
+              </p>
+            </ng-container>
+          
           </div>
 
           <!-- Only for registered user and creator of the phone-->
           <div class="actionBtn">
-            <a (click)="updatePhone()" [routerLink]="['/data/edit/', phone._id]" class="edit">Edit</a>
+            <a (click)="editPhone()" [routerLink]="['/data/edit/', phone._id]" class="edit">Edit</a>
             <a (click)="deletePhone()" [routerLink]="['/data/details/', phone._id]" class="remove">Delete</a>
             <a routerLink="/data/:id/like" class="like">Like</a>
           </div>

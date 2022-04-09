@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.authService.login$(this.loginForm.value).subscribe({
       next: user => {
         console.log(user);
-        // const newUser:any = user;
-        // sessionStorage.setItem('authToken', newUser.accessToken)
         if (this.activatedRoute.snapshot.queryParams['redirect-to']) {
           this.router.navigateByUrl(this.activatedRoute.snapshot.queryParams['redirect-to'])
         } else {

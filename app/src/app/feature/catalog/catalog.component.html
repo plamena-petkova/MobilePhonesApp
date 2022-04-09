@@ -1,97 +1,10 @@
 <section id="catalogPage">
   <h1>Catalog</h1>
-  <!-- 
-    <div class="card-box">
-        <img src="../../../assets/samsung_A71_.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" id="details">Details</a>
-            </div>
-        </div>
-    </div> -->
-  <!-- No phones in catalog-->
-  <!-- <p>No Phones in Catalog!</p> -->
-
-  <!-- <div class="card-box">
-        <img src="../../../assets/Huawei-P-Smart-2021.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" id="details">Details</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-box">
-        <img src="../../../assets/samsung_A71_.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" id="details">Details</a>
-            </div>
-        </div>
-    </div>
-    <div class="card-box">
-        <img src="../../../assets/samsung_A71_.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="/catalog/:id" id="details">Details</a>
-            </div>
-        </div>
-    </div>
-    <div class="card-box">
-        <img src=".../../../assets/samsung_A71_.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" id="details">Details</a>
-            </div>
-        </div>
-    </div>
-    <div class="card-box">
-        <img src="../../../assets/samsung_A71_.jpg">
-    <div>
-            <div class="text-center">
-                <p class="name">Name: Samsung A71</p>
-                <p class="img">Samsung</p>
-                <p class="price">Price: $300.80</p>
-                <p class="description">Smartphone</p>
-            </div>
-            <div class="btn-group">
-                <a href="#" id="details">Details</a>
-            </div>
-        </div>
-    </div> -->
-
+  <div *ngIf="phoneList">
   <div *ngFor="let phone of phoneList">
     <app-catalog-card [phone]="phone">
     </app-catalog-card>
+  </div>
+  <div class='noData' *ngIf="phoneList.length == 0">No phones in database!</div>
   </div>
 </section>

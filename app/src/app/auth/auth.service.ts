@@ -12,10 +12,6 @@ export class AuthService {
 
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
-  isLoggedIn: boolean = false;
-
-
-  // currentUser!:IUser
     
     constructor(private http: HttpClient) {}
 
@@ -29,8 +25,6 @@ export class AuthService {
         .pipe(
           map(response => response.body!)
         )
-          
-        
     }
 
     logout$(): Observable<void> {

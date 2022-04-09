@@ -7,20 +7,21 @@ import { DetailsComponent } from "./details/details.component";
 
 const routes: Routes = [
     {
-        path: 'data',
+        path: '',
+        pathMatch: 'full',
         component: CatalogComponent
     },
     {
-        path: 'data/create',
+        path: 'create',
         canActivate: [AuthGuard],
         component: CreateComponent
     },
     {
-        path: 'data/details/:phoneId',
+        path: 'details/:phoneId',
         component: DetailsComponent
     },
     {
-        path: 'data/edit/:phoneId',
+        path: 'edit/:phoneId',
         component: DetailsComponent
     }
    

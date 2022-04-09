@@ -1,26 +1,21 @@
 const { verifySession } = require("../services/userService");
+const {getUser} = require('../storage/storage');
 
-
-
-//client must handle token
 module.exports = () =>(req, res, next) => {
-    
-    const token = req.headers['x-authorization'];
-    // const token = req.cookies['auth-cookie'] || '';
-    // console.log(token);
 
+    const token = getUser().accessToken;
     
     try {
         if(token) {
             const userData = verifySession(token);
-            console.log('Got In');
             req.user = userData;
         }
-        next();
+        
     } catch(err) {
         res.status(401).json({message: 'Invalid access token. Please sign in!'})
         
     }
+    next();
 
 }
 

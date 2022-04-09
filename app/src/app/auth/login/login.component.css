@@ -60,12 +60,12 @@ input[type=text], input[type=password] {
 }
 
 
-#loginPage, #registerPage {
+/* #loginPage, #registerPage {
   
   font-size: 16px;
   color: #aab2bd;
   padding: 1em 0 10em;
-} 
+}  */
 
 
 select {
