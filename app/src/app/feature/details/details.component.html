@@ -11,8 +11,8 @@
             <p>Name: {{phone.phoneName}}</p>
             <p>Price: ${{phone.phonePrice}}</p>
             <p>Description: {{phone.description}}</p>
-            <p>Release Date:{{phone.releaseDate}}</p>
-            <p>Image:{{phone.img}}</p>
+            <p>Release Date: {{phone.releaseDate}}</p>
+            <p>ImageURL: {{phone.img}}</p>
           </div>
 
           <!-- Only for registered user and creator of the phone-->
@@ -30,6 +30,7 @@
 
 <div *ngIf="!!phone; else loadingIndicator">
   <ng-container *ngIf="isInEditMode">
+    <!-- <ng-container *ngIf="_currentUser"> -->
     <form #editForm="ngForm" (ngSubmit)="updatePhone()">
       <section id="detailsPage">
         <div class="wrapper">
@@ -77,7 +78,6 @@
               <label>Image:</label>
               <input #img="ngModel" type="text" name="img" ngModel required id="img"
                 value="image">
-
             </div>
 
             <!-- Only for registered user and creator of the phone-->
@@ -85,7 +85,7 @@
             <div class="actionBtn">
               <button class="edit">Save</button>
               <!-- [routerLink]="['/data/details/', phone._id]" -->
-              <a (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]" class="remove">Cancel</a>
+              <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]" class="remove">Cancel</button>
               <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
             </div>
 
@@ -105,6 +105,7 @@
       </section>
     </form>
   </ng-container>
+<!-- </ng-container> -->
 
 
 

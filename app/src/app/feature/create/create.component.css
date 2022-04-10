@@ -28,7 +28,7 @@ fieldset {
     margin-left: 410px;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
-    height: 650px;
+    height: 680px;
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
@@ -36,6 +36,7 @@ fieldset {
     border-radius: 15px;
     box-shadow: 0px 0px 30px 0px;
     color: black;
+    width: auto;
     
 }
 
@@ -89,8 +90,8 @@ textarea {
  
 }
 
-input[type=text], input[type=password] {
-    width: auto;
+input[type=text], input[type=password], input[type=number], input[type=textarea], input[type=url]{
+    /* width: 50%; */
     font-size: 1.2em;
     line-height: 1;
     flex: 0 1 100%;
@@ -169,7 +170,7 @@ i {
 } */ */
 
 
-input {
+/* input {
     border-radius: 3px;
     box-shadow: none;
     border: 1px solid #384049;
@@ -179,9 +180,9 @@ input {
     color: black;
     border-left: 3px solid #42a948;
     
-  }
+  } */
   
-  input[type=text] {
+  /* input {
       width: auto;
       font-size: 1.2em;
       line-height: 1;
@@ -191,7 +192,7 @@ input {
       border-left: 3px solid #42a948;
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
-  }
+  } */
 
 
 
@@ -201,10 +202,9 @@ input {
     text-align: left;
     color: black;
     background-color: #f7949c;
-    padding: 6px;
+    padding: 4px;
     border-radius: 3px;
     margin-left: 40px;
-    width: 72%;
 }
 
 
