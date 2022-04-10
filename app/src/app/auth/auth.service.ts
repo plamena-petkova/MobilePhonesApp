@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs"
 import { map } from "rxjs/operators";
-import { IUser } from "../core/interfaces";
+import { IPhone, IUser } from "../core/interfaces";
 
 @Injectable({providedIn: 'root'})
 
@@ -12,6 +12,7 @@ export class AuthService {
 
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
+  isLogged: boolean = false;
     
     constructor(private http: HttpClient) {}
 
@@ -33,11 +34,21 @@ export class AuthService {
     }
 
     handleLogin(newUser: IUser) {
-      this._currentUser.next(newUser);
+      if (this._currentUser == undefined) {
+        this.isLogged = false;
+      } else {
+        this.isLogged = true;
+        this._currentUser.next(newUser);
+      }
     }
   
     handleLogout() {
       this._currentUser.next(undefined!);
+      this.isLogged = false;
+    }
+
+    getProfile$(): Observable<any> {
+      return this.http.get(`http://localhost:3000/auth/profile`)
     }
 
 }

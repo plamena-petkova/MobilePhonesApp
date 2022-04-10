@@ -5,7 +5,7 @@ const schema = new Schema({
     phonePrice: {type: Number, required: [true, 'Phone price is required'], minlength: [1, 'Price must be positive number!']},
     description: {type: String, required: [true, 'Description is required'], minlength: [10, 'Description must be more than 10 charachters long!']},
     img: {type: String, required: [true, 'Image is required']},
-    releaseDate:{type: String,required: [true, 'Image is required']},
+    releaseDate:{type: String,required: [true, 'Release Date is required']},
     owner: {type: ObjectId, ref: 'User'}
     // phoneLikes: {type: String},
     // comments: {type: String}

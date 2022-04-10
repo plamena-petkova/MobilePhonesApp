@@ -23,6 +23,10 @@ const routes: Routes = [
     {
         path: 'edit/:phoneId',
         component: DetailsComponent
+    },
+    {
+        path: 'delete/:phoneId',
+        component: DetailsComponent
     }
    
 ]

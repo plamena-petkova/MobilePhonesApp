@@ -81,7 +81,7 @@ async function login(email, password) {
     //     lastName: user.lastName,
     //     email:user.email,
     //     _id: user._id,
-    //     accessToken: createToken(user),
+    //     accessToken: createSession(user),
     // }
 
 

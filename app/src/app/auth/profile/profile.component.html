@@ -23,23 +23,23 @@
     
     </div> -->
 
- <div class="profile">
+ <div *ngIf="!(isLoggedIn$ | async)" class="profile">
    <fieldset>
-     <img src="../../../assets/user1.png" alt="default user">
+     <img src="../../../assets/Sample_User_Icon.png" alt="default user">
 
      <legend>User Info:</legend>
      <form>
        <div class="flex">
          <p>First Name: </p>
-         <p type="text" name="firstName" id="firstName" value="Johny">Plamena</p>
+         <p type="text" name="firstName" id="firstName" value="Johny">{{(currentUser$ | async)?.firstName}}</p>
        </div>
        <div class="flex">
-         <p>Last Name: </p>
-         <p type="text" name="lastName" id="lastName" value="Johny">Petkova</p>
+         <p>Last Name:  </p>
+         <p type="text" name="lastName" id="lastName" value="Johny">{{(currentUser$| async)?.lastName}}</p>
        </div>
        <div class="flex">
          <p>Email: </p>
-         <p type="email" name="email" id="email" value="john.doe@gmail.com">pl.petkova@gmail.com</p>
+         <p type="email" name="email" id="email" value="john.doe@gmail.com">{{(currentUser$| async)?.email}}</p>
        </div>
        <button a routerLink="#" class="red-button">Edit</button>
      </form>

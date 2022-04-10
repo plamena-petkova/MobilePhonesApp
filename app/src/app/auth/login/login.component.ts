@@ -50,9 +50,4 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
 
-  // clearForm() : void {
-  //   this.loginForm.reset();
-  // }
-
-
 }

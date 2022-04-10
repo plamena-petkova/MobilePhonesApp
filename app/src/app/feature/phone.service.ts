@@ -29,6 +29,10 @@ export class PhoneService {
   }
 
   deleteById$(id:string): Observable<IPhone> {
-    return this.http.delete<IPhone>(`http://localhost:3000/data/details/${id}`)
+    return this.http.delete<IPhone>(`http://localhost:3000/data/delete/${id}`)
+  }
+
+  editById$(body: Observable<IPhone>, id: string) {
+    return this.http.put<IPhone>(`http://localhost:3000/data/edit/${id}`, body)
   }
 }

@@ -28,9 +28,10 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
 
   registerHandle() : void {
-    const {email, firstName, lastName, password} = this.registerForm.value;
+    const {id, email, firstName, lastName, password} = this.registerForm.value;
 
     const body: IUser = {
+      id:id,
       email: email,
       firstName: firstName,
       lastName:lastName,
