@@ -48,22 +48,19 @@ router.post('/logout', (req, res) => {
 });
 
 
-// router.get('/profile', (req, res) => {
+router.get('/profile', (req, res) => {
 
-//     try {
-//         const user = req.user; 
+    try {
+        const user = getUser(); 
+        res.json(user);
+    } catch(err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({message: error})
 
-//         setUser(user);
-        
-//         res.json(user);
-//     } catch(err) {
-//         console.error(err.message);
-//         const error = mapErrors(err);
-//         res.status(400).json({message: error})
+    }
 
-//     }
-
-// })
+})
 
 
 module.exports = router;

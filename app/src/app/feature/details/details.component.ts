@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { IPhone, IUser } from 'src/app/core/interfaces';
 import { PhoneService } from '../phone.service';
 // import { ActivatedRoute } from '@angular/router';
@@ -16,12 +17,13 @@ export class DetailsComponent implements OnInit {
   
   phone!:IPhone
   editedPhone!: IPhone
-  _id!: string
   
   @ViewChild('editForm') editForm!: NgForm;
 
   isInEditMode: boolean = false;
   private _currentUser = new BehaviorSubject<IUser>(undefined!);
+
+  user!: IUser
   
 
   isOwner: boolean = false;
@@ -29,6 +31,7 @@ export class DetailsComponent implements OnInit {
 
 
   constructor(private phoneService:PhoneService,
+              private authService: AuthService,
               private activatedRoute: ActivatedRoute, 
               private router: Router) { }
 
@@ -37,8 +40,34 @@ export class DetailsComponent implements OnInit {
       const phoneId = params['phoneId'];
       this.phoneService.loadPhoneById$(phoneId).subscribe(phone => {
         this.phone = phone;
+        // if(this.phone.owner == this._currentUser)
+        console.log(this.phone.owner)
+
+        this.authService.getProfile$().subscribe({
+          next: (user) => {
+            this.user = user;
+            console.log(user._id);
+            if(this.phone.owner === user._id) {
+              this.isOwner = true;
+            }
+          },
+          error: () => {
+            this.router.navigate(['/login'])
+          }
+        })
+
+     
       });
+
+      
     });
+
+
+    // this._currentUser.subscribe(id => {
+    //   this.id = id;
+    //   console.log(id);
+    // })
+
 
     // this._currentUser.subscribe(id => {
     //   this._id = id

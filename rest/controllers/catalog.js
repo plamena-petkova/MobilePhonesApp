@@ -60,6 +60,7 @@ router.put('/edit/:id', preload(), isAuth(), async (req, res) => {
 });
 
 router.delete('/delete/:id', isOwner(), async (req, res) => {
+
     
     try {
         const phoneId = req.params.id;

@@ -11,8 +11,10 @@ import { AuthService } from '../auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  currentUser$: Observable<IUser> = this.authService.currentUser$;
-  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$
+  // currentUser$: Observable<IUser> = this.authService.currentUser$;
+  // isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$
+
+  currentUser!: IUser
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -20,17 +22,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-      //  const userId = this.currentUser$;
-
-  //   this.authService.getProfile$().subscribe({
-  //     next: (userId) => {
-  //       this.currentUser$ = userId;
-  //     },
-  //     error: () => {
-  //       this.router.navigate(['/login'])
-  //     }
-  //   })
+    this.authService.getProfile$().subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      },
+      error: () => {
+        this.router.navigate(['/login'])
+      }
+    })
   }
 
 }
