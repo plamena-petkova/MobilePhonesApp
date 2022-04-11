@@ -51,12 +51,8 @@ export class AuthService {
       return this.http.get(`http://localhost:3000/auth/profile`)
     }
 
-    editProfile$( body: Observable<any>) : Observable<any> {
-      return this.http.put(`http://localhost:3000/auth/profile`, body);
-    }
-
-    handleEdit$(newUser: IUser) {
-        this._currentUser.next(newUser)
+    editProfile$( id: string, body: Observable<any>) : Observable<any> {
+      return this.http.put(`http://localhost:3000/auth/profile/${id}`, body);
     }
 
 }

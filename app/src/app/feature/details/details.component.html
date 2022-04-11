@@ -17,7 +17,7 @@
 
           <!-- Only for registered user and creator of the phone-->
           <div *ngIf="isOwner"  class="actionBtn">
-            <a (click)="editPhone()" [routerLink]="['/data/edit/', phone._id]" class="edit">Edit</a>
+            <a (click)="editPhone()" [routerLink]="['/data/details/', phone._id]" class="edit">Edit</a>
             <a (click)="deletePhone()" [routerLink]="['/data/delete/', phone._id]" class="remove">Delete</a>
             <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
           </div>
@@ -83,7 +83,6 @@
 
             <div class="actionBtn">
               <button [disabled]="editForm.invalid" class="save">Save</button>
-              <!-- [routerLink]="['/data/details/', phone._id]" -->
               <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]" class="remove">Cancel</button>
               <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
             </div>

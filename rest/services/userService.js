@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const { update } = require('../models/User');
 
 const User = require('../models/User');
 const { getUser } = require('../storage/storage');
@@ -95,14 +96,20 @@ function logout(token) {
     blackList.push(token);
 }
 
-async function updateProfile(user) {
-    // getUser();
-    // const id = req.user._id;
-	// 	const { firstName, lastName, email } = req.body;
+async function updateProfile(id, user) {
+        
 
-		const updatedUser = await User.findOneAndUpdate(user)
-			 
+		const updatedUser = await User.findOneAndUpdate(id, user);
+
+        updatedUser.firstName = user.firstName;
+        updatedUser.lastName = user.lastName;
+        updatedUser.email = user.email;
+
+    
+        await updatedUser.save();
+    
         return updatedUser;
+    
 			
 }
 

@@ -1,5 +1,6 @@
+ <ng-container *ngIf="!!currentUser">
  <ng-container *ngIf="!isInEditMode">
- <div *ngIf="currentUser" class="profile">
+ <div  class="profile">
    <fieldset>
      <img src="../../../assets/Sample_User_Icon.png" alt="default user">
 
@@ -7,29 +8,31 @@
      <section>
        <div class="flex">
          <p>First Name: </p>
-         <p type="text" name="firstName" id="firstName" value="Johny">{{currentUser.firstName}}</p>
+         <p type="text" name="firstName" id="firstName" value="Johny">{{currentUser?.firstName}}</p>
        </div>
        <div class="flex">
          <p>Last Name:  </p>
-         <p type="text" name="lastName" id="lastName" value="Johny">{{currentUser.lastName}}</p>
+         <p type="text" name="lastName" id="lastName" value="Johny">{{currentUser?.lastName}}</p>
        </div>
        <div class="flex">
          <p>Email: </p>
-         <p type="email" name="email" id="email" value="john.doe@gmail.com">{{currentUser.email}}</p>
+         <p type="email" name="email" id="email" value="john.doe@gmail.com">{{currentUser?.email}}</p>
        </div>
-       <button a (click)="editProfileButton()" [routerLink]="['/auth/profile']" class="red-button">Edit</button>
-     </section>
+       <button (click)="editProfileButton()"  class="red-button">Edit</button>
+       <!-- [routerLink]="['/auth/profile/', currentUser._id]" -->
+      </section>
    </fieldset>
 
  </div>
 </ng-container>
+</ng-container>
 
 <ng-container *ngIf="isInEditMode">
-  <div *ngIf="currentUser"  class="profile">
+  <div class="profile">
+    <!-- *ngIf="currentUser"   -->
     <fieldset>
       <img src="../../../assets/Sample_User_Icon.png" alt="default user">
       <legend>User Info:</legend>
-      <!-- [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()" -->
       <form #editProfile="ngForm" (ngSubmit)="saveProfileEdit()">
         <div class="flex">
           <p>First Name: </p>
@@ -44,7 +47,7 @@
           <input email="ngModel" ngModel required type="email" name="email" id="email" value="john.doe@gmail.com">
         </div>
         <button a class="save">Save</button>
-        <button (click)="isInEditMode=false" [routerLink]="['/auth/profile']" class="remove">Cancel</button>
+        <button a (click)="isInEditMode=false" class="remove">Cancel</button>
       </form>
     </fieldset>
  

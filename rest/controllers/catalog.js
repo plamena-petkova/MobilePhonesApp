@@ -39,7 +39,7 @@ router.get('/details/:id', preload(), async (req, res) => {
     res.json(phone);
 });
 
-router.put('/edit/:id', preload(), isAuth(), async (req, res) => {
+router.put('/details/:id', preload(), isAuth(), async (req, res) => {
     const phoneId = req.params.id;
     const phone = {
         phoneName: req.body.phoneName,

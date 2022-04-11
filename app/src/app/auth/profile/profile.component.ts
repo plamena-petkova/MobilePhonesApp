@@ -22,9 +22,6 @@ export class ProfileComponent implements OnInit {
   
   currentUser!: IUser
   isInEditMode!: boolean
-  editProfileUser!: string
-  
-  
  
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -35,7 +32,6 @@ export class ProfileComponent implements OnInit {
     this.authService.getProfile$().subscribe({
       next: (user) => {
         this.currentUser = user;
-
         
       },
       error: () => {
@@ -51,7 +47,7 @@ export class ProfileComponent implements OnInit {
 
     setTimeout(() => {
         
-      this.editProfile.form.patchValue({
+      this.editProfile?.form.patchValue({
         firstName: this.currentUser.firstName,
         lastName: this.currentUser.lastName,
         email: this.currentUser.email,
@@ -62,27 +58,30 @@ export class ProfileComponent implements OnInit {
 
   saveProfileEdit(): void {
 
-    this.isInEditMode = false;
+    
 
       const body: Observable<any> = this.editProfile.value;
+      const id: string = this.currentUser._id
 
       // setTimeout(() => {
      
-      this.authService.editProfile$(body).subscribe((editedUser) => {
-        this.editProfileUser = editedUser;
+      this.authService.editProfile$(id, body).subscribe((editedUser) => {
+        this.currentUser = editedUser;
           }); 
+          this.isInEditMode = false;
 
-          this.authService.getProfile$().subscribe({
-            next: (user) => {
-              this.currentUser = user;
+          // this.authService.getProfile$().subscribe({
+          //   next: (user) => {
+          //     this.currentUser = user;
               
-            },
-            error: () => {
-              this.router.navigate(['/login'])
-            }
-          })
+          //   },
+          //   error: () => {
+          //     this.router.navigate(['/login'])
+          //   }
+          // })
     // });
        
   }      
+  
 
 }

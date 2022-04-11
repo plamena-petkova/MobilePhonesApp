@@ -70,7 +70,7 @@ export class DetailsComponent implements OnInit {
 
       setTimeout(() => {
         
-        this.editForm.form.patchValue({
+        this.editForm?.form.patchValue({
           phoneName: this.phone.phoneName,
           phonePrice: this.phone.phonePrice,
           description: this.phone.description,

@@ -33,6 +33,6 @@ export class PhoneService {
   }
 
   editById$(body: Observable<IPhone>, id: string) {
-    return this.http.put<IPhone>(`http://localhost:3000/data/edit/${id}`, body)
+    return this.http.put<IPhone>(`http://localhost:3000/data/details/${id}`, body)
   }
 }

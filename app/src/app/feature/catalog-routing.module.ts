@@ -21,10 +21,6 @@ const routes: Routes = [
         component: DetailsComponent
     },
     {
-        path: 'edit/:phoneId',
-        component: DetailsComponent
-    },
-    {
         path: 'delete/:phoneId',
         component: DetailsComponent
     }

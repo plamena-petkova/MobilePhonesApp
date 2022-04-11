@@ -60,20 +60,20 @@ router.get('/profile', (req, res) => {
 
     }
 
-router.put('/profile', async (req, res) => {
+router.put('/profile/:userId', async (req, res) => {
     try{
         // const id = getUser();
         // const id = req.body.user._id;
         // console.log(req.body._id);
         // const id = req.body._id;
-    getUser();
+    const id = req.user._id;
     const user = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email
     };
     
-        const result = await updateProfile(user);
+        const result = await updateProfile(id, user);
         res.json(result);
     } catch(err) {
         console.error(err.message);
