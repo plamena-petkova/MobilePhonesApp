@@ -34,7 +34,7 @@
     text-decoration: none;
 }
 
-button {
+/* button {
 
 
     background-color: rgb(32, 50, 57);
@@ -54,7 +54,7 @@ button {
     right: 0;
     bottom: 0;
     padding: 3%;
-}
+} */
 
 
 
@@ -78,6 +78,29 @@ input, input + label > i {
     color: black;
     /* margin-right: 80%; */
   }
+
+  button {
+    color: white;
+    border: none;
+    height: 20px;
+    /* padding: 0.8em 1.2em; */
+    width: 15%;
+    height: 50px;
+	cursor: pointer;
+    border: none;
+    border-radius: 10px;
+	display: inline;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(32, 50, 57)   ;
+    font-size: 15px;
+    margin-top: 35px; 
+    margin-left: 50px;
+    padding: 5px;
+    text-decoration: none;
+   
+}
+
 
   .phoneText {
       font-weight: bold;

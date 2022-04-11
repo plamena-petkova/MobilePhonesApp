@@ -4,7 +4,7 @@ import { IPhone } from './phone';
 
 export interface IUser {
     
-    id: string;
+    _id: string;
     email: string;
     firstName: string;
     lastName: string;

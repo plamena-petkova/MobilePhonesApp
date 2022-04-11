@@ -30,7 +30,6 @@
 
 <div *ngIf="!!phone; else loadingIndicator">
   <ng-container *ngIf="isInEditMode">
-    <!-- <ng-container *ngIf="_currentUser"> -->
     <form #editForm="ngForm" (ngSubmit)="updatePhone()">
       <section id="detailsPage">
         <div class="wrapper">
@@ -83,7 +82,7 @@
             <!-- Only for registered user and creator of the phone-->
 
             <div class="actionBtn">
-              <button class="edit">Save</button>
+              <button [disabled]="editForm.invalid" class="save">Save</button>
               <!-- [routerLink]="['/data/details/', phone._id]" -->
               <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]" class="remove">Cancel</button>
               <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
@@ -113,11 +112,3 @@
 <ng-template #loadingIndicator>Loading...</ng-template>
 
 
-
-<!-- phoneName: string;
-    phonePrice: string;
-description: string[];
-releaseDate: string;
-phoneLikes: string[];
-comments: T[];
-userId: IUser; -->

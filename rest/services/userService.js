@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 
 const User = require('../models/User');
+const { getUser } = require('../storage/storage');
 
 const JWT_SECRET = 'dsdgfdfgdfgdfgdfg';
 const blackList = [];
@@ -94,6 +95,17 @@ function logout(token) {
     blackList.push(token);
 }
 
+async function updateProfile(user) {
+    // getUser();
+    // const id = req.user._id;
+	// 	const { firstName, lastName, email } = req.body;
+
+		const updatedUser = await User.findOneAndUpdate(user)
+			 
+        return updatedUser;
+			
+}
+
 
 
 // function createToken(user) {
@@ -145,5 +157,6 @@ module.exports = {
     register,
     login,
     logout,
-    verifySession
+    verifySession,
+    updateProfile
 }

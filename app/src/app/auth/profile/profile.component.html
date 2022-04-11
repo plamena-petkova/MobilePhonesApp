@@ -1,36 +1,11 @@
- <!-- <div class="profile">
-        <fieldset>
-        <img src="../../../assets/user1.png" alt="default user">
-        
-        <legend>User Info:</legend>
-        <form >
-            <div class="flex">
-                <p>First Name: </p>
-                <input type="text" name="firstName" id="firstName" value="Johny">
-            </div>
-            <div class="flex">
-                <p>Last Name: </p>
-                <input type="text" name="lastName" id="lastName" value="Johny">
-            </div>
-            <div class="flex">
-                <p>Email: </p>
-                <input type="email" name="email" id="email" value="john.doe@gmail.com">
-            </div>
-            <button a routerLink="#" class="red-button">Cancel</button>
-            <button a routerLink="#" class="green-button">Save</button>
-        </form>
-    </fieldset>
-    
-    </div> -->
-
- <div  class="profile">
-  <!-- *ngIf="!(isLoggedIn$ | async)" -->
+ <ng-container *ngIf="!isInEditMode">
+ <div *ngIf="currentUser" class="profile">
    <fieldset>
      <img src="../../../assets/Sample_User_Icon.png" alt="default user">
 
      <legend>User Info:</legend>
-     <form>
-       <div *ngIf="currentUser" class="flex">
+     <section>
+       <div class="flex">
          <p>First Name: </p>
          <p type="text" name="firstName" id="firstName" value="Johny">{{currentUser.firstName}}</p>
        </div>
@@ -42,8 +17,36 @@
          <p>Email: </p>
          <p type="email" name="email" id="email" value="john.doe@gmail.com">{{currentUser.email}}</p>
        </div>
-       <button a routerLink="#" class="red-button">Edit</button>
-     </form>
+       <button a (click)="editProfileButton()" [routerLink]="['/auth/profile']" class="red-button">Edit</button>
+     </section>
    </fieldset>
 
  </div>
+</ng-container>
+
+<ng-container *ngIf="isInEditMode">
+  <div *ngIf="currentUser"  class="profile">
+    <fieldset>
+      <img src="../../../assets/Sample_User_Icon.png" alt="default user">
+      <legend>User Info:</legend>
+      <!-- [formGroup]="loginFormGroup" (ngSubmit)="handleLogin()" -->
+      <form #editProfile="ngForm" (ngSubmit)="saveProfileEdit()">
+        <div class="flex">
+          <p>First Name: </p>
+          <input firstName="ngModel" ngModel required type="text" name="firstName" id="firstName" value="Johny">
+        </div>
+        <div class="flex">
+          <p>Last Name:  </p>
+          <input lastName="ngModel" ngModel required type="text" name="lastName" id="lastName" value="Johny">
+        </div>
+        <div class="flex">
+          <p>Email: </p>
+          <input email="ngModel" ngModel required type="email" name="email" id="email" value="john.doe@gmail.com">
+        </div>
+        <button a class="save">Save</button>
+        <button (click)="isInEditMode=false" [routerLink]="['/auth/profile']" class="remove">Cancel</button>
+      </form>
+    </fieldset>
+ 
+  </div>
+ </ng-container>

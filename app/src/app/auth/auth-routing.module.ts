@@ -17,7 +17,6 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent
     }
-
 ]
 
 export const AuthRoutingModule = RouterModule.forChild(routes);

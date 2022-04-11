@@ -63,7 +63,7 @@
                 Phone description must be more than 10 symbols!
               </p>
           </ng-container>
-        <button class="add-phone" type="submit">Add phone</button>
+        <button [disabled]="newPhoneForm.invalid" class="add-phone" type="submit">Add phone</button>
       </div>
     </fieldset>
   </form>

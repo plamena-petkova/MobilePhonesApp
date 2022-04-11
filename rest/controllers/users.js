@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {register, login, logout} = require('../services/userService');
+const {register, login, logout, updateProfile} = require('../services/userService');
 const mapErrors = require('../utils/mapper');
 const {getUser, setUser, clearUser } = require('../storage/storage');
  
@@ -59,6 +59,29 @@ router.get('/profile', (req, res) => {
         res.status(400).json({message: error})
 
     }
+
+router.put('/profile', async (req, res) => {
+    try{
+        // const id = getUser();
+        // const id = req.body.user._id;
+        // console.log(req.body._id);
+        // const id = req.body._id;
+    getUser();
+    const user = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
+    };
+    
+        const result = await updateProfile(user);
+        res.json(result);
+    } catch(err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({message: error})
+
+    }
+})
 
 })
 
