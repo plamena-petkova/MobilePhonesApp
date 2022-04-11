@@ -40,7 +40,7 @@ li::before {
 nav a {
     text-decoration: none;
     border-radius: 50%;
-    padding: 0.1em;
+    padding: 0.2em;
     color: white;
 }
 
@@ -52,6 +52,24 @@ nav > img {
     margin-right: 0.2em;
     border-radius: 5px;
 }
+
+p {
+    /* color: red;
+    font-weight: bold;
+    /* margin-right: 50px; */
+    
+        position: fixed;
+        z-index: 10;
+        right: 8%;
+        top: 8%;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        color: rgb(255, 255, 255);
+        font-style: italic;
+        text-decoration: underline;
+        box-shadow: 0 5px 10px rgb(204, 204, 204);
+        background-color: rgba(238, 74, 74, 0.699);
+      }
 
 
 
