@@ -4,14 +4,14 @@
     <legend>Login</legend>
     <p class="field field-icon">
       <label for="email"><span><i class="fas fa-user"></i></span></label>
-      <input ngModel #email="ngModel" required email type="text" name="email" id="email" placeholder="Email">
+      <input ngModel #email="ngModel" required pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]+" type="text" name="email" id="email" placeholder="Email">
     </p>
     <ng-container *ngIf="email.invalid && email.touched">
       <p *ngIf="email.errors?.['required']" class="error">
           Email is required!
       </p>
 
-      <p *ngIf="email.errors?.['email']" class="error">
+      <p *ngIf="email.errors?.['pattern']" class="error">
           Email is not valid!
       </p>
   </ng-container>

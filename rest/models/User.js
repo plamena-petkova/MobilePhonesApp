@@ -1,6 +1,5 @@
 const {model, Schema} = require('mongoose');
-const bcrypt = require('bcrypt');
-const saltRounds = Number(process.env.SALTROUNDS) || 5;
+
 
 const userSchema = new Schema({
     email: {type: String, required:[true, 'Email is required']},

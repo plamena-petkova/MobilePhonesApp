@@ -10,12 +10,13 @@ Simple catalog of mobile phones.
     - view register
     - view catalog page
       + view details of the proper phone item
+    - view page not found 404
     
 
 ## Logged in users
     - view home page
     - view "add phone" section
-    - view own profile information
+    - view and edit own profile information 
     - view logout
     - view catalog page
       + view details of the proper phone item

@@ -10,10 +10,10 @@ router.post('/register', async (req, res) => {
         throw new Error('Email, first name, last name and password are required!');
     }
 
+
     const result = await register(req.body.firstName.trim(), req.body.lastName.trim(), req.body.email.trim().toLowerCase(), req.body.password.trim());
     setUser(result);
-    // const token = user.accessToken;
-    // res.cookie('auth-cookie', token, {httpOnly: true});    
+ 
     
     res.status(201).json(result)
 

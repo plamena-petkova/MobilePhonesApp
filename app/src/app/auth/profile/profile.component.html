@@ -36,17 +36,44 @@
       <form #editProfile="ngForm" (ngSubmit)="saveProfileEdit()">
         <div class="flex">
           <p>First Name: </p>
-          <input firstName="ngModel" ngModel required type="text" name="firstName" id="firstName" value="Johny">
+          <input #firstName="ngModel" ngModel required minlength="5" type="text" name="firstName" id="firstName" value="Johny">
+          <ng-container *ngIf="firstName.touched && firstName.invalid">
+            <p *ngIf="firstName.errors?.['required']" class="error">
+              First name is required!
+          </p>
+            <p *ngIf="firstName.errors?.['minlength']" class="error">
+              First Name must be more than 5 symbols!
+            </p>
+          </ng-container>
         </div>
         <div class="flex">
           <p>Last Name:  </p>
-          <input lastName="ngModel" ngModel required type="text" name="lastName" id="lastName" value="Johny">
+          <input #lastName="ngModel" ngModel required minlength="5" type="text" name="lastName" id="lastName" value="Johny">
+          <ng-container *ngIf="lastName.touched && lastName.invalid">
+            <p *ngIf="lastName.errors?.['required']" class="error">
+              Last name is required!
+          </p>
+            <p *ngIf="lastName.errors?.['minlength']" class="error">
+              Last Name must be more than 5 symbols!
+            </p>
+          </ng-container>
+        
         </div>
         <div class="flex">
           <p>Email: </p>
-          <input email="ngModel" ngModel required type="email" name="email" id="email" value="john.doe@gmail.com">
+          <input #email="ngModel" ngModel required pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]+" type="email" name="email" id="email" value="john.doe@gmail.com">
+          <ng-container *ngIf="email.invalid && email.touched">
+            <p *ngIf="email.errors?.['required']" class="error">
+                Email is required!
+            </p>
+      
+            <p *ngIf="email.errors?.['pattern']" class="error">
+                Email is not valid!
+            </p>
+        </ng-container>
+        
         </div>
-        <button a class="save">Save</button>
+        <button [disabled]="editProfile.invalid" a class="save">Save</button>
         <button a (click)="isInEditMode=false" class="remove">Cancel</button>
       </form>
     </fieldset>

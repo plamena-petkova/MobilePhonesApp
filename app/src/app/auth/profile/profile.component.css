@@ -160,3 +160,25 @@ button {
    
 }
 
+
+p.error {
+    text-align: left;
+    color: black;
+    background-color: #f7949c;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+/* input.error {
+    border-left-color:#a8413f;
+} */
+
+input.ng-valid  {
+    border-left: 5px solid #42A948;
+    /* green */
+}
+
+input.ng-invalid.ng-touched {
+    border-left: 5px solid #A94442;
+    /* red */
+}

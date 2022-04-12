@@ -41,13 +41,16 @@
 
         <p class="field field-icon">
           <label for="imgUrl"><span><i class="fa-solid fa-image"></i></span></label>
-          <input #img="ngModel" ngModel required id="imgUrl" name="img" class="imgUrl" type="url" size="30"
+          <input #img="ngModel" ngModel required pattern="^http?s:\/\/.+.*$" id="imgUrl" name="img" class="imgUrl" type="url" size="30"
             placeholder="Image Url">
         </p>
 
         <ng-container *ngIf="img.touched && img.invalid" class="error">
           <p *ngIf="img.errors?.['required']" class="error">
             Phone image url is required!
+          </p>
+          <p *ngIf="img.errors?.['pattern']" class="error">
+            Phone image url should be valid!
           </p>
         </ng-container>
         <p class="field field-icon">

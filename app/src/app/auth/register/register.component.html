@@ -3,7 +3,7 @@
     <legend>Register</legend>
     <p class="field field-icon">
       <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-      <input #email="ngModel" ngModel required email id="email" class="email" name="email" type="text" placeholder="Email">
+      <input #email="ngModel" ngModel required pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]+" id="email" class="email" name="email" type="text" placeholder="Email">
     </p>
 
     <ng-container *ngIf="email.invalid && email.touched">
@@ -11,7 +11,7 @@
           Email is required!
       </p>
 
-      <p *ngIf="email.errors?.['email']" class="error">
+      <p *ngIf="email.errors?.['pattern']" class="error">
           Email is not valid!
       </p>
   </ng-container>
