@@ -8,10 +8,10 @@ export interface IPhone<> extends IBase{
     description: string[];
     img: string;
     releaseDate: string;
-    // phoneLikes: string[];
+    owner: string;
+    likes: string[];
+    rating: number
     // comments: T[];
-    // userId: IUser;
-    owner: string
   }
 
   

@@ -53,11 +53,7 @@ nav > img {
     border-radius: 5px;
 }
 
-p {
-    /* color: red;
-    font-weight: bold;
-    /* margin-right: 50px; */
-    
+p { 
         position: fixed;
         z-index: 10;
         right: 8%;
@@ -68,7 +64,7 @@ p {
         font-style: italic;
         text-decoration: underline;
         box-shadow: 0 5px 10px rgb(204, 204, 204);
-        background-color: rgba(238, 74, 74, 0.699);
+        background-color: rgba(238, 74, 74, 1);
       }
 
 

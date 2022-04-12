@@ -35,4 +35,8 @@ export class PhoneService {
   editById$(body: Observable<IPhone>, id: string) {
     return this.http.put<IPhone>(`http://localhost:3000/data/details/${id}`, body)
   }
+
+  likes$(phoneId:string) {
+    return this.http.get<string>(`http://localhost:3000/data/details/${phoneId}/likes`)
+  }
 }

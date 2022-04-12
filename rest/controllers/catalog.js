@@ -3,14 +3,15 @@ const { isAuth, isOwner } = require('../middlewares/guards');
 const preload = require('../middlewares/preload');
 const api = require('../services/phoneService');
 const mapErrors = require('../utils/mapper');
-
+const {getUser} = require('../storage/storage');
+const {like} = require('../services/phoneService')
 
 router.get('/', async (req, res) => {
     const data = await api.getAll();
     res.json(data);
 });
 
-router.post('/create', isAuth(), async(req, res) => {
+router.post('/create', isOwner(), async(req, res) => {
 
     const phone = {
         phoneName: req.body.phoneName,
@@ -18,10 +19,10 @@ router.post('/create', isAuth(), async(req, res) => {
         description: req.body.description,
         img: req.body.img,
         releaseDate:req.body.releaseDate,
-        owner: req.user._id
-        // phoneLikes: req.body.phoneLikes,
+        owner: req.user._id,
+        likes: req.body.likes,
+        rating: req.body.rating
         // comments: req.body.comments,
-        // userId: IUser;
     };
     try {
         const result = await api.create(phone);
@@ -46,7 +47,9 @@ router.put('/details/:id', preload(), isAuth(), async (req, res) => {
         phonePrice: req.body.phonePrice,
         description: req.body.description,
         img: req.body.img,
-        releaseDate:req.body.releaseDate
+        releaseDate:req.body.releaseDate,
+        likes: req.body.likes,
+        rating: req.body.rating
     };
 
     try {
@@ -72,6 +75,25 @@ router.delete('/delete/:id', isOwner(), async (req, res) => {
         res.status(400).json({message: error})
     }
     
+});
+
+
+router.get('/details/:id/likes', isAuth(), async (req, res) => {
+
+    const id = req.params.id;
+    const userId = getUser()._id;
+
+    try {
+        const phone = await like(id, userId);
+        console.log(phone);
+        res.json(phone.rating)
+        
+    } catch(err) {
+        console.error(err.message);
+        const error = mapErrors(err);
+        res.status(400).json({message: error})
+    }
+
 });
 
 module.exports = router;

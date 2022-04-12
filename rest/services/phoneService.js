@@ -23,6 +23,8 @@ async function update(id, phone) {
     existing.description = phone.description;
     existing.img = phone.img;
     existing.releaseDate = phone.releaseDate;
+    existing.likes = phone.likes;
+    existing.rating = phone.rating
 
     await existing.save();
 
@@ -34,10 +36,27 @@ async function deleteById(id){
     await Phone.findByIdAndDelete(id);
 }
 
+async function like(phoneId, userId) {
+    const phone = await Phone.findById(phoneId);
+
+    if(phone.likes.includes(userId)){
+       throw new Error('User has already liked the phone!');
+    }
+
+    phone.likes.push(userId);
+    phone.rating += 1;
+    
+    await phone.save();
+
+    return phone;
+
+}
+
 module.exports = {
     create,
     getAll,
     getById,
     update,
-    deleteById
+    deleteById,
+    like
 }

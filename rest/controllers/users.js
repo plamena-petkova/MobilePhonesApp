@@ -11,10 +11,9 @@ router.post('/register', async (req, res) => {
     }
 
 
+
     const result = await register(req.body.firstName.trim(), req.body.lastName.trim(), req.body.email.trim().toLowerCase(), req.body.password.trim());
     setUser(result);
- 
-    
     res.status(201).json(result)
 
  } catch(err) {

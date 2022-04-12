@@ -22,6 +22,9 @@ export class DetailsComponent implements OnInit {
   isInEditMode: boolean = false;
   user!: IUser
   isOwner: boolean = false;
+  isAuthor: boolean = false;
+  userId!: string;
+  rating!: string
 
   constructor(private phoneService:PhoneService,
               private authService: AuthService,
@@ -39,9 +42,11 @@ export class DetailsComponent implements OnInit {
           this.authService.getProfile$().subscribe({
             next: (user) => {
               this.user = user;
-              console.log(user._id);
               if(this.phone.owner === user._id) {
                 this.isOwner = true;
+              }
+              if(this.phone.owner !== user._id) {
+                this.isAuthor = true;
               }
             },
             error: () => {
@@ -93,8 +98,24 @@ export class DetailsComponent implements OnInit {
           this.phone = editedPhone;
             });
         });
-
-
     }
-}  
+
+    getLikes(): void {
+
+      this.activatedRoute.params.subscribe(params => {
+        const phoneId = params['phoneId'];
+
+        this.authService.getProfile$().subscribe({
+          next: (userId) => {
+            this.userId = userId;
+            }
+        });
+
+        this.phoneService.likes$(phoneId).subscribe(phoneRating => {
+          this.rating = phoneRating;
+          console.log(this.rating)
+        });
+    });
+  }
+}
   

@@ -13,16 +13,28 @@
             <p>Description: {{phone.description}}</p>
             <p>Release Date: {{phone.releaseDate}}</p>
             <p>ImageURL: {{phone.img}}</p>
+            
           </div>
 
+          <div *ngIf="isAuthor" class="actionBtn">
+            <button (click)="getLikes()" [routerLink]="['/data/details/', phone._id, 'likes']" class="like">Like</button>
+            <p class="field field-icon">
+              <label for="password"><span><i class="fa-solid fa-thumbs-up"></i></span></label>
+            <span class="like">{{phone.rating}}</span>
+            </p>  
+          </div>
+          
+
           <!-- Only for registered user and creator of the phone-->
-          <div *ngIf="isOwner"  class="actionBtn">
+          <div *ngIf="isOwner" class="actionBtn">
             <a (click)="editPhone()" [routerLink]="['/data/details/', phone._id]" class="edit">Edit</a>
             <a (click)="deletePhone()" [routerLink]="['/data/delete/', phone._id]" class="remove">Delete</a>
-            <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
+
           </div>
         </div>
       </div>
+
+      
     </section>
   </ng-container>
 </div>
@@ -75,24 +87,17 @@
               </ng-container>
 
               <label>Image:</label>
-              <input #img="ngModel" type="text" name="img" ngModel required id="img"
-                value="image">
+              <input #img="ngModel" type="text" name="img" ngModel required id="img" value="image">
             </div>
-
-            <!-- Only for registered user and creator of the phone-->
 
             <div class="actionBtn">
               <button [disabled]="editForm.invalid" class="save">Save</button>
-              <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]" class="remove">Cancel</button>
-              <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
+              <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]"
+                class="remove">Cancel</button>
+
             </div>
 
-            <!-- <div class="actionBtn">
-              <a class="actionBtn">Save</a>
-              <a (click)="isInEditMode = false" class="actionBtn">Cancel</a>
-             
-            </div> -->
- <!-- <a routerLink="/data/:id/like" class="like">Like</a> -->
+
 
 
 
@@ -103,11 +108,9 @@
       </section>
     </form>
   </ng-container>
-<!-- </ng-container> -->
+  <!-- </ng-container> -->
 
 
 
 </div>
 <ng-template #loadingIndicator>Loading...</ng-template>
-
-

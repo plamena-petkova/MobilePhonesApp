@@ -23,6 +23,10 @@ const routes: Routes = [
     {
         path: 'delete/:phoneId',
         component: DetailsComponent
+    },
+    {
+        path: 'details/:phoneId/likes',
+        component: DetailsComponent
     }
    
 ]

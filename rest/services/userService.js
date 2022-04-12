@@ -1,9 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { update } = require('../models/User');
 
 const User = require('../models/User');
-const { getUser } = require('../storage/storage');
+
 
 const JWT_SECRET = 'dsdgfdfgdfgdfgdfg';
 const blackList = [];

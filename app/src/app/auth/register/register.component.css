@@ -65,7 +65,7 @@ input[type=text], input[type=password] {
   }
   
 
-#loginPage, #registerPage {
+#registerPage {
   
   font-size: 16px;
   color: #aab2bd;
