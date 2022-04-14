@@ -37,6 +37,6 @@ export class PhoneService {
   }
 
   likes$(phoneId:string) {
-    return this.http.get<string>(`http://localhost:3000/data/details/${phoneId}/likes`)
+    return this.http.get<number>(`http://localhost:3000/data/details/${phoneId}/likes`)
   }
 }

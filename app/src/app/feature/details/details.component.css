@@ -34,29 +34,6 @@
     text-decoration: none;
 }
 
-/* button {
-
-
-    background-color: rgb(32, 50, 57);
-    font-size: 15px;
-    color: white;
-    border-radius: 10px;
-    padding: 15px;
-    height: 20px;
-    width: 14%;
-    margin-top: 20px; 
-    margin-left: 20px;
-    border: none;
-    margin-top: 40px;
-    text-align: center;
-    left: auto;
-    top: 30px;
-    right: 0;
-    bottom: 0;
-    padding: 3%;
-} */
-
-
 
 .actionBtn  {
     margin-top: 40px;
@@ -94,7 +71,7 @@ input, input + label > i {
 	justify-content: center;
 	background-color: rgb(32, 50, 57)   ;
     font-size: 15px;
-    margin-top: 35px; 
+    /* margin-top: 35px;  */
     margin-left: 50px;
     padding: 5px;
     text-decoration: none;
@@ -144,7 +121,8 @@ input.ng-invalid.ng-touched {
 }
 
 
-.likes{
-    color: red;
-    font-size: 100px;
+.like{
+    margin-left: 600px;
+    font-size: 25px;
 }
+

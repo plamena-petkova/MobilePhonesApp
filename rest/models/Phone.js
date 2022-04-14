@@ -9,6 +9,7 @@ const schema = new Schema({
     owner: {type: ObjectId, ref: 'User'},
     likes: {type: [ObjectId],  ref: 'User', default: [] },
     rating: {type: Number, default: 0}
+    
     // comments: {type: String}
 })
 

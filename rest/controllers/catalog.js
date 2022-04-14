@@ -85,7 +85,6 @@ router.get('/details/:id/likes', isAuth(), async (req, res) => {
 
     try {
         const phone = await like(id, userId);
-        console.log(phone);
         res.json(phone.rating)
         
     } catch(err) {

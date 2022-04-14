@@ -14,14 +14,13 @@ import { MessageBusService, MessageType } from '../message-bus.service';
 export class HeaderComponent implements OnInit, OnDestroy {
 
   currentUser$: Observable<IUser> = this.authService.currentUser$;
-  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$
+  isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
+  
 
   private isLoggingdOut: boolean = false;
 
   message!: string;
   isMessageError!: boolean
-
-
 
   private subscription!: Subscription
 
@@ -43,6 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }, 5000);
       }
     });
+
    
   }
 
@@ -51,12 +51,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   logoutHandler(): void {
-    
-
     if(this.isLoggingdOut) {
       return;
     } 
-
+    
     this.isLoggingdOut = true;
     console.log('Logout called');
 

@@ -18,8 +18,7 @@
          <p>Email: </p>
          <p type="email" name="email" id="email" value="john.doe@gmail.com">{{currentUser?.email}}</p>
        </div>
-       <button (click)="editProfileButton()"  class="red-button">Edit</button>
-       <!-- [routerLink]="['/auth/profile/', currentUser._id]" -->
+       <button (click)="editProfileButton()"   class="red-button">Edit</button>
       </section>
    </fieldset>
 
@@ -29,7 +28,7 @@
 
 <ng-container *ngIf="isInEditMode">
   <div class="profile">
-    <!-- *ngIf="currentUser"   -->
+
     <fieldset>
       <img src="../../../assets/Sample_User_Icon.png" alt="default user">
       <legend>User Info:</legend>

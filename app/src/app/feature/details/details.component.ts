@@ -24,7 +24,9 @@ export class DetailsComponent implements OnInit {
   isOwner: boolean = false;
   isAuthor: boolean = false;
   userId!: string;
-  rating!: string
+  rating!: number
+  isLiked:boolean = false;
+  
 
   constructor(private phoneService:PhoneService,
               private authService: AuthService,
@@ -32,11 +34,14 @@ export class DetailsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
+
+   
+    console.log(this.rating);
+
     this.activatedRoute.params.subscribe(params => {
       const phoneId = params['phoneId'];
       this.phoneService.loadPhoneById$(phoneId).subscribe(phone => {
         this.phone = phone;
-        // console.log(this.phone.owner)
 
         if(this.authService.isLogged) {
           this.authService.getProfile$().subscribe({
@@ -44,9 +49,15 @@ export class DetailsComponent implements OnInit {
               this.user = user;
               if(this.phone.owner === user._id) {
                 this.isOwner = true;
-              }
+              };
               if(this.phone.owner !== user._id) {
                 this.isAuthor = true;
+              };
+              if(phone.likes) {
+                if(this.phone.likes.includes(this.user._id)) {
+                  this.isLiked = true;
+              }
+          
               }
             },
             error: () => {
@@ -60,6 +71,7 @@ export class DetailsComponent implements OnInit {
   }
 
   deletePhone() {
+    if(confirm('Are you sure you want to delete this item?')){
     this.activatedRoute.params.subscribe(params => {
       const phoneId = params['phoneId'];
       this.phoneService.deleteById$(phoneId).subscribe(() => {
@@ -67,6 +79,7 @@ export class DetailsComponent implements OnInit {
           });
       });
     }
+  }
 
 
     editPhone() {
@@ -92,7 +105,6 @@ export class DetailsComponent implements OnInit {
         const phoneId = params['phoneId'];
 
       const body: Observable<IPhone> = this.editForm.value;
-      
         
         this.phoneService.editById$(body, phoneId).subscribe((editedPhone) => {
           this.phone = editedPhone;
@@ -102,20 +114,24 @@ export class DetailsComponent implements OnInit {
 
     getLikes(): void {
 
-      this.activatedRoute.params.subscribe(params => {
-        const phoneId = params['phoneId'];
-
-        this.authService.getProfile$().subscribe({
-          next: (userId) => {
-            this.userId = userId;
+        this.activatedRoute.params.subscribe(params => {
+          const phoneId = params['phoneId'];
+  
+          this.authService.getProfile$().subscribe({
+            next: (userId) => {
+              this.userId = userId;
             }
+          });
+
+          this.phoneService.likes$(phoneId).subscribe(rating => {
+              this.rating = rating;
+                 this.router.navigate([`data/details/${phoneId}`])
+              this.isLiked = true;
+            });
         });
 
-        this.phoneService.likes$(phoneId).subscribe(phoneRating => {
-          this.rating = phoneRating;
-          console.log(this.rating)
-        });
-    });
-  }
+      }
+  
+
 }
   

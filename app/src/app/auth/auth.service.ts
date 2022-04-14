@@ -12,6 +12,7 @@ export class AuthService {
 
   currentUser$ = this._currentUser.asObservable();
   isLoggedIn$ = this.currentUser$.pipe(map(user => !!user));
+ 
   isLogged: boolean = false;
     
     constructor(private http: HttpClient) {}
@@ -51,9 +52,16 @@ export class AuthService {
       return this.http.get(`http://localhost:3000/auth/profile`)
     }
 
-    editProfile$( id: string, body: Observable<any>) : Observable<any> {
+    editProfile$( id: string, body: IUser) : Observable<any> {
       return this.http.put(`http://localhost:3000/auth/profile/${id}`, body);
+      
     }
+
+    changeProfile(user: IUser) {
+      this._currentUser.next(user)
+    }
+
+
 
 }
 

@@ -18,10 +18,12 @@ const routes: Routes = [
     },
     {
         path: 'details/:phoneId',
+        canActivate: [AuthGuard],
         component: DetailsComponent
     },
     {
         path: 'delete/:phoneId',
+        canActivate: [AuthGuard],
         component: DetailsComponent
     },
     {

@@ -1,4 +1,4 @@
-<div *ngIf="!!phone; else loadingIndicator">
+<div *ngIf="phone; else loadingIndicator">
   <ng-container *ngIf="!isInEditMode">
     <section id="detailsPage">
       <div class="wrapper">
@@ -13,34 +13,37 @@
             <p>Description: {{phone.description}}</p>
             <p>Release Date: {{phone.releaseDate}}</p>
             <p>ImageURL: {{phone.img}}</p>
-            
+
           </div>
 
-          <div *ngIf="isAuthor" class="actionBtn">
-            <button (click)="getLikes()" [routerLink]="['/data/details/', phone._id, 'likes']" class="like">Like</button>
-            <p class="field field-icon">
-              <label for="password"><span><i class="fa-solid fa-thumbs-up"></i></span></label>
-            <span class="like">{{phone.rating}}</span>
-            </p>  
+
+          <p class="field field-icon">
+            <label for="like"><span class="like"><i class="fa-solid fa-thumbs-up fa-xl"></i>  {{ rating? rating: phone.rating}}</span></label>
+          </p>
+          <div *ngIf="isAuthor" class="actionBtn" > 
+            <ng-container  *ngIf="!isLiked">
+              <!-- class="actionBtn" -->
+              <!-- [routerLink]="['/data/details/', phone._id, 'likes']" -->
+              <button (click)="getLikes()">Like</button>
+            </ng-container>
           </div>
-          
 
           <!-- Only for registered user and creator of the phone-->
           <div *ngIf="isOwner" class="actionBtn">
-            <a (click)="editPhone()" [routerLink]="['/data/details/', phone._id]" class="edit">Edit</a>
-            <a (click)="deletePhone()" [routerLink]="['/data/delete/', phone._id]" class="remove">Delete</a>
+            <a (click)="editPhone()" class="edit">Edit</a>
+            <a (click)="deletePhone()" class="remove">Delete</a>
 
           </div>
         </div>
       </div>
 
-      
+
     </section>
   </ng-container>
 </div>
 
 
-<div *ngIf="!!phone; else loadingIndicator">
+
   <ng-container *ngIf="isInEditMode">
     <form #editForm="ngForm" (ngSubmit)="updatePhone()">
       <section id="detailsPage">
@@ -92,17 +95,10 @@
 
             <div class="actionBtn">
               <button [disabled]="editForm.invalid" class="save">Save</button>
-              <button (click)="isInEditMode=false" [routerLink]="['/data/edit/', phone._id]"
+              <button (click)="isInEditMode=false" [routerLink]="['/data/details', phone._id]"
                 class="remove">Cancel</button>
 
             </div>
-
-
-
-
-
-
-
           </div>
         </div>
       </section>
@@ -110,7 +106,4 @@
   </ng-container>
   <!-- </ng-container> -->
 
-
-
-</div>
 <ng-template #loadingIndicator>Loading...</ng-template>

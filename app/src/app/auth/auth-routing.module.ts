@@ -20,7 +20,7 @@ const routes: Routes = [
     {
         path: 'profile/:userId',
         component: ProfileComponent
-    }
+    },
 ]
 
 export const AuthRoutingModule = RouterModule.forChild(routes);

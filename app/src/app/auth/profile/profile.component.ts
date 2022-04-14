@@ -19,15 +19,17 @@ export class ProfileComponent implements OnInit {
   @ViewChild('editProfile') editProfile!: NgForm;
 
 
-  
   currentUser!: IUser
+
   isInEditMode!: boolean
+
  
 
   constructor(private authService: AuthService, private router: Router) { }
 
 
   ngOnInit(): void {
+
 
     this.authService.getProfile$().subscribe({
       next: (user) => {
@@ -38,12 +40,14 @@ export class ProfileComponent implements OnInit {
         this.router.navigate(['/login'])
       }
     })
+
+
   }
 
 
   editProfileButton(): void {
     this.isInEditMode = true;
-    console.log(this.currentUser._id)
+
 
     setTimeout(() => {
         
@@ -53,34 +57,24 @@ export class ProfileComponent implements OnInit {
         email: this.currentUser.email,
       })
     })
+
+    
   }
 
 
   saveProfileEdit(): void {
 
-    
-
-      const body: Observable<any> = this.editProfile.value;
+      const body: IUser = this.editProfile.value;
       const id: string = this.currentUser._id
-
-      // setTimeout(() => {
      
       this.authService.editProfile$(id, body).subscribe((editedUser) => {
         this.currentUser = editedUser;
+  
+        
+        this.isInEditMode = false;
           }); 
-          this.isInEditMode = false;
 
-          // this.authService.getProfile$().subscribe({
-          //   next: (user) => {
-          //     this.currentUser = user;
-              
-          //   },
-          //   error: () => {
-          //     this.router.navigate(['/login'])
-          //   }
-          // })
-    // });
-       
+         
   }      
   
 

@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
 const auth = require('./middlewares/auth');
+const connectionKey = 'mongodb+srv://pl_petkova:uhnMSpLG0a6mlHkL@phones.0yvvw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// const connectionKey = 'mongodb://localhost:27017/phones'
 
-// const cors = require('./middlewares/cors');
+
 const cors = require('cors');
 
 const catalogController = require('./controllers/catalog')
@@ -16,7 +18,7 @@ start();
 async function start() {
     
     try {
-        await mongoose.connect('mongodb://localhost:27017/phones', {
+        await mongoose.connect(connectionKey, {
             useUnifiedTopology: true,
             useNewUrlParser: true
         });
