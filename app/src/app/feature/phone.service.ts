@@ -5,38 +5,38 @@ import { Observable } from "rxjs";
 
 
 
-// const api = environment.apiUrl;
-const body = { phoneName: String, phonePrice: Number, description: String, img: String, releaseDate: String };
 
 @Injectable()
 
 export class PhoneService {
 
+  portLink = 'https://mobilephones-app.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   loadPhoneList$(): Observable<IPhone[]> {
-    return this.http.get<IPhone[]>(`http://localhost:3000/data`);
+    return this.http.get<IPhone[]>(`${this.portLink}/data`);
   }
 
  
 
   addPhone$(body: Observable<IPhone>) {
-    return this.http.post<IPhone>(`http://localhost:3000/data/create`, body, { withCredentials: true });
+    return this.http.post<IPhone>(`${this.portLink}/data/create`, body, { withCredentials: true });
   }
 
   loadPhoneById$(id:string): Observable<IPhone> {
-    return this.http.get<IPhone>(`http://localhost:3000/data/details/${id}`)
+    return this.http.get<IPhone>(`${this.portLink}/data/details/${id}`)
   }
 
   deleteById$(id:string): Observable<IPhone> {
-    return this.http.delete<IPhone>(`http://localhost:3000/data/delete/${id}`)
+    return this.http.delete<IPhone>(`${this.portLink}/data/delete/${id}`)
   }
 
-  editById$(body: Observable<IPhone>, id: string) {
-    return this.http.put<IPhone>(`http://localhost:3000/data/details/${id}`, body)
+  editById$(body: IPhone,  id: string) {
+    return this.http.put<IPhone>(`${this.portLink}/data/details/${id}`, body)
   }
 
   likes$(phoneId:string) {
-    return this.http.get<number>(`http://localhost:3000/data/details/${phoneId}/likes`)
+    return this.http.get<number>(`${this.portLink}/data/details/${phoneId}/likes`)
   }
 }

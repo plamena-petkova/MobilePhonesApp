@@ -51,7 +51,6 @@ router.get('/profile', (req, res) => {
 
     try {
         const user = getUser(); 
-        console.log(user);
         res.json(user);
     } catch(err) {
         console.error(err.message);
@@ -62,10 +61,6 @@ router.get('/profile', (req, res) => {
 
 router.put('/profile/:id', async (req, res) => {
     try{
-        // const id = getUser();
-        // const id = req.body.user._id;
-        // console.log(req.body._id);
-        // const id = req.body._id;
     const id = req.user._id;
     const user = {
         firstName: req.body.firstName,

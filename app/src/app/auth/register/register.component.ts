@@ -12,6 +12,8 @@ import { passwordMatch } from '../util';
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
 
+  errorMessage: string = '';
+
   // @ViewChild('registerForm') registerForm!: NgForm;
 
   passwordControl = new FormControl(null, [Validators.required, Validators.minLength(6)])
@@ -52,12 +54,19 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       lastName:this.registerFormGroup.value.lastName,
       password: this.passwordGroup.value.password
     }
-
-    this.authService.register$(body).subscribe(() => {
-      this.router.navigate(['/data']);
-    })
-
-
+    this.errorMessage = '';
+    this.authService.register$(body).subscribe({
+      
+        next: user => {
+            this.router.navigate(['/data']);
+        },
+        complete: () => {
+          console.log('register stream completed')
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+        }
+      });
 
   }
 

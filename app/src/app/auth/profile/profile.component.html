@@ -18,7 +18,7 @@
          <p>Email: </p>
          <p type="email" name="email" id="email" value="john.doe@gmail.com">{{currentUser?.email}}</p>
        </div>
-       <button (click)="editProfileButton()"   class="red-button">Edit</button>
+       <!-- <button (click)="editProfileButton()"   class="red-button">Edit</button> -->
       </section>
    </fieldset>
 
@@ -72,10 +72,17 @@
         </ng-container>
         
         </div>
-        <button [disabled]="editProfile.invalid" a class="save">Save</button>
+        <button  [disabled]="editProfile.invalid" a class="save">Save</button>
         <button a (click)="isInEditMode=false" class="remove">Cancel</button>
       </form>
     </fieldset>
  
   </div>
  </ng-container>
+
+
+ 
+
+
+
+

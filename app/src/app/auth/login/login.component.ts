@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
   loginHandle(): void {
-    console.log('Loggin button clicked!');
+    // console.log('Loggin button clicked!');
     this.errorMessage = '';
     this.authService.login$(this.loginForm.value).subscribe({
       next: user => {
@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           this.router.navigate(['/data']);
         }
 
+        
       },
       complete: () => {
         console.log('login stream completed')

@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IPhone, IUser } from 'src/app/core/interfaces';
 import { PhoneService } from '../phone.service';
-// import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -14,11 +12,10 @@ import { PhoneService } from '../phone.service';
 })
 export class DetailsComponent implements OnInit {
   
-  phone!:IPhone
-  editedPhone!: IPhone
-  
   @ViewChild('editForm') editForm!: NgForm;
 
+  phone!:IPhone
+  editedPhone!: IPhone
   isInEditMode: boolean = false;
   user!: IUser
   isOwner: boolean = false;
@@ -26,7 +23,6 @@ export class DetailsComponent implements OnInit {
   userId!: string;
   rating!: number
   isLiked:boolean = false;
-  
 
   constructor(private phoneService:PhoneService,
               private authService: AuthService,
@@ -35,27 +31,33 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
-    console.log(this.rating);
 
     this.activatedRoute.params.subscribe(params => {
       const phoneId = params['phoneId'];
       this.phoneService.loadPhoneById$(phoneId).subscribe(phone => {
-        this.phone = phone;
+        this.phone = phone 
 
         if(this.authService.isLogged) {
           this.authService.getProfile$().subscribe({
             next: (user) => {
               this.user = user;
+              
               if(this.phone.owner === user._id) {
                 this.isOwner = true;
               };
+
               if(this.phone.owner !== user._id) {
                 this.isAuthor = true;
               };
+              
               if(phone.likes) {
                 if(this.phone.likes.includes(this.user._id)) {
                   this.isLiked = true;
+              }
+              if(phone.rating) {
+                this.rating = phone.rating
+              } else {
+                this.rating = 0;
               }
           
               }
@@ -72,12 +74,10 @@ export class DetailsComponent implements OnInit {
 
   deletePhone() {
     if(confirm('Are you sure you want to delete this item?')){
-    this.activatedRoute.params.subscribe(params => {
-      const phoneId = params['phoneId'];
+      const phoneId : string = this.phone._id;
       this.phoneService.deleteById$(phoneId).subscribe(() => {
         this.router.navigate(['/data']);
           });
-      });
     }
   }
 
@@ -93,23 +93,33 @@ export class DetailsComponent implements OnInit {
           phonePrice: this.phone.phonePrice,
           description: this.phone.description,
           releaseDate: this.phone.releaseDate,
-          img: this.phone.img
+          img: this.phone.img,
         })
+
+        
       })
     }
 
     updatePhone(): void {
       this.isInEditMode = false;
 
-      this.activatedRoute.params.subscribe(params => {
-        const phoneId = params['phoneId'];
+      // this.activatedRoute.params.subscribe(params => {
+      //   const phoneId = params['phoneId'];
 
-      const body: Observable<IPhone> = this.editForm.value;
+      const phoneId = this.phone._id;
+
+      const body: IPhone = this.editForm.value;
+      console.log(body)
+
+
         
         this.phoneService.editById$(body, phoneId).subscribe((editedPhone) => {
           this.phone = editedPhone;
             });
-        });
+
+        // });
+
+
     }
 
     getLikes(): void {
@@ -124,8 +134,8 @@ export class DetailsComponent implements OnInit {
           });
 
           this.phoneService.likes$(phoneId).subscribe(rating => {
-              this.rating = rating;
-                 this.router.navigate([`data/details/${phoneId}`])
+              this.phone.rating = rating;
+                //  this.router.navigate([`data/details/${phoneId}`])
               this.isLiked = true;
             });
         });

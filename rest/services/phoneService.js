@@ -17,16 +17,17 @@ function getById(id) {
 
 async function update(id, phone) {
     const existing = await Phone.findById(id);
+    
 
     existing.phoneName = phone.phoneName;
     existing.phonePrice = phone.phonePrice;
     existing.description = phone.description;
     existing.img = phone.img;
     existing.releaseDate = phone.releaseDate;
-    existing.likes = phone.likes;
-    existing.rating = phone.rating
+
 
     await existing.save();
+
 
     return existing;
 

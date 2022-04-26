@@ -60,12 +60,6 @@ input[type=text], input[type=password] {
 }
 
 
-/* #loginPage, #registerPage {
-  
-  font-size: 16px;
-  color: #aab2bd;
-  padding: 1em 0 10em;
-}  */
 
 
 select {
@@ -98,7 +92,7 @@ i {
     padding: 10px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    /* background-color: #e9ecef; */
+
 }
 
 
@@ -124,9 +118,7 @@ p.error {
     border-radius: 3px;
 }
 
-/* input.error {
-    border-left:3px solid #a8413f;
-} */
+
 
 
 input.ng-valid  {

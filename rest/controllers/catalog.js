@@ -20,8 +20,8 @@ router.post('/create', isOwner(), async(req, res) => {
         img: req.body.img,
         releaseDate:req.body.releaseDate,
         owner: req.user._id,
-        likes: req.body.likes,
-        rating: req.body.rating
+        // likes: req.body.likes,
+        // rating: req.body.rating
         // comments: req.body.comments,
     };
     try {
@@ -48,8 +48,8 @@ router.put('/details/:id', preload(), isAuth(), async (req, res) => {
         description: req.body.description,
         img: req.body.img,
         releaseDate:req.body.releaseDate,
-        likes: req.body.likes,
-        rating: req.body.rating
+        // likes: req.body.likes,
+        // rating: req.body.rating
     };
 
     try {

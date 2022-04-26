@@ -9,7 +9,6 @@ Simple catalog of mobile phones.
     - view login
     - view register
     - view catalog page
-      + view details of the proper phone item
     - view page not found 404
     
 
@@ -21,7 +20,8 @@ Simple catalog of mobile phones.
     - view catalog page
       + view details of the proper phone item
       + view delete and edit button 
-      + can delete and make correction of the item
+      + can delete and make correction of their own phone publication
+    - can like other users phone publication
 
 
 # Technologies
@@ -36,7 +36,7 @@ Simple catalog of mobile phones.
 
     - Node.js
     - express
-    - mongoDb
+    - mongoDB Atlas
     - mongoose
 
 

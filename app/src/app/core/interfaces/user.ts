@@ -9,7 +9,6 @@ export interface IUser {
     firstName: string;
     lastName: string;
     password: string;
-    // accessToken: string
     // comments: IComment;
     // phones: IPhone[];
 }

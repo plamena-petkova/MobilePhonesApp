@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IUser } from '../interfaces';
 import { MessageBusService, MessageType } from '../message-bus.service';
@@ -15,12 +15,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentUser$: Observable<IUser> = this.authService.currentUser$;
   isLoggedIn$: Observable<boolean> = this.authService.isLoggedIn$;
-  
+
+
+  currentUser!:IUser
 
   private isLoggingdOut: boolean = false;
 
   message!: string;
   isMessageError!: boolean
+
 
   private subscription!: Subscription
 
@@ -35,14 +38,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.message = newMessage?.text || "";
       this.isMessageError = newMessage?.type === MessageType.Error;
 
-
       if(this.message) {
         setTimeout(() => {
           this.messageBus.clear()
         }, 5000);
       }
     });
-
    
   }
 
@@ -68,5 +69,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+
+  
 
 }

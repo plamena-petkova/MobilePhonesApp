@@ -16,28 +16,24 @@
 
           </div>
 
-
           <p class="field field-icon">
-            <label for="like"><span class="like"><i class="fa-solid fa-thumbs-up fa-xl"></i>  {{ rating? rating: phone.rating}}</span></label>
+            <label for="like"><span class="like"><i class="fa-solid fa-thumbs-up fa-xl"></i>  {{phone.rating}}</span></label>
           </p>
           <div *ngIf="isAuthor" class="actionBtn" > 
             <ng-container  *ngIf="!isLiked">
-              <!-- class="actionBtn" -->
-              <!-- [routerLink]="['/data/details/', phone._id, 'likes']" -->
+          
               <button (click)="getLikes()">Like</button>
             </ng-container>
           </div>
 
           <!-- Only for registered user and creator of the phone-->
           <div *ngIf="isOwner" class="actionBtn">
-            <a (click)="editPhone()" class="edit">Edit</a>
-            <a (click)="deletePhone()" class="remove">Delete</a>
+            <button (click)="editPhone()" class="edit">Edit</button>
+            <button (click)="deletePhone()" class="remove">Delete</button>
 
           </div>
         </div>
       </div>
-
-
     </section>
   </ng-container>
 </div>
@@ -76,7 +72,10 @@
                 id="description" value="description">
               <ng-container *ngIf="description.touched && description.invalid" class="error">
                 <p *ngIf="description.errors?.['required']" class="error">
-                  Phone price is required!
+                  Phone description is required!
+                </p>
+                <p *ngIf="description.errors?.['minlength']" class="error">
+                  Phone description must be more than 10symbols!
                 </p>
               </ng-container>
 
@@ -85,17 +84,19 @@
                 value="release date">
               <ng-container *ngIf="releaseDate.touched && releaseDate.invalid" class="error">
                 <p *ngIf="releaseDate.errors?.['required']" class="error">
-                  Phone price is required!
+                  Phone release date is required!
                 </p>
               </ng-container>
 
               <label>Image:</label>
               <input #img="ngModel" type="text" name="img" ngModel required id="img" value="image">
             </div>
-
+            <p class="field field-icon">
+              <label  for="like"><span class="like"><i class="fa-solid fa-thumbs-up fa-xl"></i>  {{phone.rating}}</span></label>
+            </p>
             <div class="actionBtn">
               <button [disabled]="editForm.invalid" class="save">Save</button>
-              <button (click)="isInEditMode=false" [routerLink]="['/data/details', phone._id]"
+              <button (click)="isInEditMode=false"
                 class="remove">Cancel</button>
 
             </div>

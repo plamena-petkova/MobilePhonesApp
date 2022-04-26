@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { IUser } from 'src/app/core/interfaces';
 import { AuthService } from '../auth.service';
 
@@ -22,15 +22,15 @@ export class ProfileComponent implements OnInit {
   currentUser!: IUser
 
   isInEditMode!: boolean
+  
 
- 
 
   constructor(private authService: AuthService, private router: Router) { }
 
 
   ngOnInit(): void {
 
-
+   
     this.authService.getProfile$().subscribe({
       next: (user) => {
         this.currentUser = user;
@@ -48,7 +48,6 @@ export class ProfileComponent implements OnInit {
   editProfileButton(): void {
     this.isInEditMode = true;
 
-
     setTimeout(() => {
         
       this.editProfile?.form.patchValue({
@@ -64,18 +63,16 @@ export class ProfileComponent implements OnInit {
 
   saveProfileEdit(): void {
 
-      const body: IUser = this.editProfile.value;
+      const body: Observable<IUser> = this.editProfile.value;
       const id: string = this.currentUser._id
      
       this.authService.editProfile$(id, body).subscribe((editedUser) => {
-        this.currentUser = editedUser;
-  
-        
+        this.currentUser = editedUser;        
         this.isInEditMode = false;
-          }); 
 
-         
+        
+     }); 
+
   }      
-  
 
 }
