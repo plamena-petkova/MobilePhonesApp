@@ -1,0 +1,41 @@
+<h1 class="welcome"> WELCOME TO MOBILE PHONES CATALOG!</h1>
+    <div>
+        <img id="imgBack" src="../../../../assets/bridge-g83f091530_1920.jpg">
+        
+        <div *ngIf="!!catalogHome">
+          <div class="cards" *ngFor="let phone of catalogHome; let i=index">
+            <app-home-card *ngIf="i<2" [phone]="phone"></app-home-card>
+          </div>
+
+
+        <div *ngIf="!catalogHome">
+          <div class="card-box">
+            <img src="../../../../assets/samsung_A71_.jpg">
+        <div>
+                <div class="text-center">
+                    <p class="name">Name: Samsung</p>
+                    <p class="price">Price: 300$</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-box">
+          <img src="../../../../assets/Huawei-P-Smart-2021.jpg">
+      <div>
+              <div class="text-center">
+                  <p class="name">Name: Huawei</p>
+                  <p class="price">Price: 200$</p>
+              </div>
+          </div>
+      </div>
+          
+    </div>
+        </div>
+
+      
+      </div>
+      
+      
+      
+       
+    
+   

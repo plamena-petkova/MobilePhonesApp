@@ -1,16 +1,14 @@
-
-nav,
-footer {
+nav {
     background-color: rgb(32, 50, 57) ;
-    width: 100%;
     display: flex;
     font-size: 16px;
-    justify-content: space-around;
+    justify-content:space-between;
     align-items: center;
-}
+} 
 
-nav, 
-header {
+nav {
+    display: flex;
+    flex-wrap: wrap;
     background-color: rgb(32, 50, 57) ;
     margin: 0%;
 }
@@ -29,13 +27,11 @@ nav ul {
 }
 
 nav ul li {
+    list-style-type: none;
     display: inline;
     margin: 0 2px;
 }
 
-li::before {
-    display: inline;
-}
 
 nav a {
     text-decoration: none;
@@ -53,19 +49,9 @@ nav > img {
     border-radius: 5px;
 }
 
-p { 
-        position: fixed;
-        z-index: 10;
-        right: 8%;
-        top: 8%;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        color: rgb(255, 255, 255);
-        font-style: italic;
-        text-decoration: underline;
-        box-shadow: 0 5px 10px rgb(204, 204, 204);
-        background-color: rgba(238, 74, 74, 1);
-      }
+header {
+    width: 98vw;
+}
 
 
 

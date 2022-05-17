@@ -1,0 +1,52 @@
+#imgBack{
+    max-width: 40%;
+    margin-top: 0px;
+    margin-right: 50px;
+    height: auto;
+    opacity: 70%;
+    border-radius: 10%;
+    float: left;
+    margin-bottom: 150px;
+
+}
+
+
+
+.card-box {
+    box-shadow: 0px 0px 30px 0px;
+    padding: 30px;
+    margin-left: 100px;
+    background-position: right 35% bottom 45%;
+    box-sizing: border-box;
+    border-radius: 15px;
+    float: left;
+    height: 320px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 70px;
+    margin-top: 20px;
+    background-color: rgb(238, 237, 222);
+}
+
+.card-box > img {
+    display: block;
+    width: 150px;
+    border-radius: 15px;
+}
+
+
+  .welcome {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   
+}
+
+.cards {
+    display: inline-block;
+    margin-right: 1px;
+    /* margin-top: 0; */
+}
+
+
+

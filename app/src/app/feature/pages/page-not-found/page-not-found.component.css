@@ -1,0 +1,11 @@
+.mainbox {
+    margin-top: 150px;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.error {
+    text-decoration: none;
+}

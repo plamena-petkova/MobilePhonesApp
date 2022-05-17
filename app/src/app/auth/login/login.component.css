@@ -1,7 +1,7 @@
 fieldset {
     padding: 30px;
-    float: left;
-    margin-left: 450px;
+    max-width: 30%;
+    margin: auto;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
     height: 400px;
