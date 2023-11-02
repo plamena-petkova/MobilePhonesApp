@@ -1,7 +1,6 @@
 # MobilePhonesApp
 Mobile Phones Application SoftUni Angular project
 Simple catalog of mobile phones. 
-You can reach the app here: https://mobilephones-app.herokuapp.com
 
 # Features
 
