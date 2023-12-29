@@ -14,7 +14,7 @@ const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
 
 
-start();
+
 
 async function start() {
     
@@ -53,5 +53,8 @@ async function start() {
     app.get('/', (req, res)=> res.json({message:'Rest service operational'}))
     // app.listen(3000, () => console.log('Rest service listening on port 3000'))
     app.listen(process.env.PORT)
+
+
+    start();
 
 }
