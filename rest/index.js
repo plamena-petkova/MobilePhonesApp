@@ -1,19 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-
+const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
 const auth = require('./middlewares/auth');
 require('dotenv').config();
-const cors = require('cors');
-
 const connectionKey = process.env.MONGO_URL;
-const cookieSecret = process.env.COOKIESECRET;
+
+
+
+
+const cors = require('cors');
 
 const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
 
 async function start() {
-
+    
     const app = express();
     app.use(express.json());//parser
 
@@ -46,6 +48,7 @@ async function start() {
         });
         console.log('Database ready');
     } catch(err) {
+        console.log('ERR', err);
         console.error('Database connection failed!');
         process.exit(1);
     }
