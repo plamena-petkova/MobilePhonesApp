@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
+
 const auth = require('./middlewares/auth');
 require('dotenv').config();
 const cors = require('cors');
 
 const connectionKey = process.env.MONGO_URL;
+const cookieSecret = process.env.COOKIESECRET;
 
 const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
