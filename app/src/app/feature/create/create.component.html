@@ -5,46 +5,94 @@
 
       <div class="container">
         <p class="field field-icon">
-          <label for="name"><span><i class="fa-solid fa-mobile-screen"></i></span></label>
-          <input ngModel #phoneName="ngModel" required id="name" name="phoneName" class="name" type="text"
-            placeholder="Mobile Phone">
+          <label for="name"
+            ><span><i class="fa-solid fa-mobile-screen"></i></span
+          ></label>
+          <input
+            ngModel
+            #phoneName="ngModel"
+            required
+            id="name"
+            name="phoneName"
+            class="name"
+            type="text"
+            placeholder="Mobile Phone"
+          />
         </p>
-        <ng-container *ngIf="phoneName.touched && phoneName.invalid" class="error">
+        <ng-container
+          *ngIf="phoneName.touched && phoneName.invalid"
+          class="error"
+        >
           <p *ngIf="phoneName.errors?.['required']" class="error">
             Phone name is required!
           </p>
         </ng-container>
 
         <p class="field field-icon">
-          <label for="price"><span><i class="fa-solid fa-dollar-sign"></i></span></label>
-          <input #phonePrice="ngModel" ngModel required id="price" name="phonePrice" class="price" type="number"
-            placeholder="Price">
+          <label for="price"
+            ><span><i class="fa-solid fa-dollar-sign"></i></span
+          ></label>
+          <input
+            #phonePrice="ngModel"
+            ngModel
+            required
+            id="price"
+            name="phonePrice"
+            class="price"
+            type="number"
+            placeholder="Price"
+          />
         </p>
-        <ng-container *ngIf="phonePrice.touched && phonePrice.invalid" class="error">
+        <ng-container
+          *ngIf="phonePrice.touched && phonePrice.invalid"
+          class="error"
+        >
           <p *ngIf="phonePrice.errors?.['required']" class="error">
             Phone price is required!
           </p>
         </ng-container>
 
-
-
         <p class="field field-icon">
-          <label for="releaseDate"><span><i class="fa-solid fa-calendar"></i></span></label>
-          <input #releaseDate="ngModel" ngModel required id="releaseDate" name="releaseDate" class="releaseDate"
-            type="text" placeholder="Release Date">
+          <label for="releaseDate"
+            ><span><i class="fa-solid fa-calendar"></i></span
+          ></label>
+          <input
+            #releaseDate="ngModel"
+            ngModel
+            required
+            id="releaseDate"
+            name="releaseDate"
+            class="releaseDate"
+            type="text"
+            placeholder="Release Date"
+          />
         </p>
-        <ng-container *ngIf="releaseDate.touched && releaseDate.invalid" class="error">
+        <ng-container
+          *ngIf="releaseDate.touched && releaseDate.invalid"
+          class="error"
+        >
           <p *ngIf="releaseDate.errors?.['required']" class="error">
             Phone release date is required!
           </p>
         </ng-container>
 
         <p class="field field-icon">
-          <label for="imgUrl"><span><i class="fa-solid fa-image"></i></span></label>
-          <input #img="ngModel" ngModel required pattern="^https?:\/\/(.+)$" id="imgUrl" name="img" class="imgUrl" type="url" size="30"
-            placeholder="Image Url">
+          <label for="imgUrl"
+            ><span><i class="fa-solid fa-image"></i></span
+          ></label>
+          <input
+            #img="ngModel"
+            ngModel
+            required
+            pattern="^https?:\/\/(.+)$"
+            id="imgUrl"
+            name="img"
+            class="imgUrl"
+            type="url"
+            size="30"
+            placeholder="Image Url"
+          />
         </p>
-        
 
         <ng-container *ngIf="img.touched && img.invalid" class="error">
           <p *ngIf="img.errors?.['required']" class="error">
@@ -55,19 +103,39 @@
           </p>
         </ng-container>
         <p class="field field-icon">
-          <label for="description"><span><i class="fa-solid fa-file-lines"></i></span></label>
-          <textarea #description="ngModel" ngModel required minlength="10" name="description" class="description"
-            placeholder="Description"></textarea>
+          <label for="description"
+            ><span><i class="fa-solid fa-file-lines"></i></span
+          ></label>
+          <textarea
+            #description="ngModel"
+            ngModel
+            required
+            minlength="10"
+            name="description"
+            class="description"
+            placeholder="Description"
+          ></textarea>
         </p>
-        <ng-container *ngIf="description.touched && description.invalid" class="error">
-            <p *ngIf="description.errors?.['required']" class="error">
-              Phone description is required!
-            </p>
-            <p *ngIf="description.errors?.['minlength']" class="error">
-                Phone description must be more than 10 symbols!
-              </p>
-          </ng-container>
-        <button [disabled]="newPhoneForm.invalid" class="add-phone" type="submit">Add phone</button>
+        <ng-container
+          *ngIf="description.touched && description.invalid"
+          class="error"
+        >
+          <p *ngIf="description.errors?.['required']" class="error">
+            Phone description is required!
+          </p>
+          <p *ngIf="description.errors?.['minlength']" class="error">
+            Phone description must be more than 10 symbols!
+          </p>
+        </ng-container>
+        <div class="add-phone">
+          <button
+            [disabled]="newPhoneForm.invalid"
+            class="add-phone"
+            type="submit"
+          >
+            Add phone
+          </button>
+        </div>
       </div>
     </fieldset>
   </form>

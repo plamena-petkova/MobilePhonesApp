@@ -1,16 +1,15 @@
-
 <div class="card-box">
-    <img src="{{phone.img}}">
-<div>
-        <div class="text-center">
-            <p class="name">Name: {{phone.phoneName}}</p>
-            <p class="price">Price: {{phone.phonePrice}}$</p>
-            <p class="description">{{phone.description}}</p>
-        </div>
-        <div class="btn-group">
-            <a [routerLink]="['/data/details/', phone._id]" id="details">Details</a>
-        </div>
+  <div class="box-img">
+    <img src="{{ phone.img }}" />
+  </div>
+  <div>
+    <div class="text-center">
+      <p class="name">Name: {{ phone.phoneName }}</p>
+      <p class="price">Price: {{ phone.phonePrice }}$</p>
+      <p class="description">{{ phone.description }}</p>
     </div>
+    <div class="btn-group">
+      <a [routerLink]="['/data/details/', phone._id]" id="details">Details</a>
+    </div>
+  </div>
 </div>
-
-

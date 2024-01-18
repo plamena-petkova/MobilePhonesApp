@@ -12,10 +12,14 @@
 }
 
 
-.card-box > img {
-    max-width: 100%;
-    height: 50%;  
-    border-radius: 15px;
+.box-img img {
+    width: 200px;
+    height: 200px;
+}
+
+.card-box {
+    max-width: 20vw;
+    height: auto;
 }
 
 

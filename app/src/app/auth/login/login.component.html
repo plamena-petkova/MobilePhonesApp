@@ -45,10 +45,11 @@
         Password must be more than 6 symbols!
       </p>
     </ng-container>
-
-    <button [disabled]="loginForm.invalid" type="submit" class="login">
+    <div class="login">
+    <button [disabled]="loginForm.invalid" type="submit" >
       Login
     </button>
+  </div>
     <p class="field">
       <span
         >If you don't have profile click

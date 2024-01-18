@@ -1,129 +1,95 @@
 .wrapper {
-    height: 750px;
-    width: 700px;
-    margin: 30px auto;
-    border-radius: 15px;
-    box-shadow: 0px 0px 30px 0px;
-    margin-bottom: 200px;
-    background-color: #f7f7f7;
-    padding: 25px;
+  height: 750px;
+  width: 700px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 0px;
+  margin-bottom: 200px;
+  background-color: #f7f7f7;
+  padding: 25px;
 }
 
 .phoneCover img {
-    float: center;
-    margin-left: 220px;
-    margin-top: 3px;
-    height: 30%;
-    width: 30%;
-    margin-right: 60px;
-    border-radius: 15px;
-    padding: 1%;
+  float: center;
+  margin-left: 220px;
+  margin-top: 3px;
+  height: 30%;
+  width: 30%;
+  margin-right: 60px;
+  border-radius: 15px;
+  padding: 1%;
 }
 
-.actionBtn > a {
-    background-color: rgb(32, 50, 57);
-    font-size: 15px;
-    border-radius: 10px;
-    padding: 15px;
-    height: 20px;
-    width: 35%;
-    margin-top: 20px; 
-    margin-left: 20px;
-    border: none;
-    text-decoration: none;
+input,
+input + label > i {
+  border-radius: 3px;
+  box-shadow: none;
+  border: 1px solid #384049;
+  background: rgb(238, 237, 222);
+  display: block;
+  width: 100%;
+  color: black;
+  /* margin-right: 80%; */
 }
 
-
-.actionBtn  {
-    margin-top: 40px;
-    text-align: right;
-    left: auto;
-    top: 30px;
-    right: 0;
-    bottom: 0;
-    padding: 3%;
+.phoneText {
+  font-weight: bold;
+  color: black;
 }
 
-input, input + label > i {
-    border-radius: 3px;
-    box-shadow: none;
-    border: 1px solid #384049;
-    background: rgb(238, 237, 222);
-    display: block;
-    width: 100%;
-    color: black;
-    /* margin-right: 80%; */
-  }
-
-  button {
-    color: white;
-    border: none;
-    height: 20px;
-    /* padding: 0.8em 1.2em; */
-    width: 15%;
-    height: 50px;
-	cursor: pointer;
-    border: none;
-    border-radius: 10px;
-	display: inline;
-	align-items: center;
-	justify-content: center;
-	background-color: rgb(32, 50, 57)   ;
-    font-size: 15px;
-    /* margin-top: 35px;  */
-    margin-left: 50px;
-    padding: 5px;
-    text-decoration: none;
-   
+input[type="text"] {
+  width: 45%;
+  font-size: 1.2em;
+  line-height: 1;
+  border: 1px solid;
+  padding: 5px;
+  border-left: 3px solid #42a948;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
-
-  .phoneText {
-      font-weight: bold;
-      color: black;
-  }
-  
-  input[type=text] {
-      width: 45%;
-      font-size: 1.2em;
-      line-height: 1;
-      /* flex: 0 1 100%; */
-      border: 1px solid;
-      padding: 5px;
-      border-left: 3px solid #42a948;
-      border-top-right-radius: 3px;
-      border-bottom-right-radius: 3px;
-  }
-
-  
-  p.error {
-    /* float: right; */
-    margin-top: 0%;
-    text-align: left;
-    color: black;
-    background-color: #f7949c;
-    padding: 3px;
-    border-radius: 3px;
-    margin-left: 0px;
-    width: 47%;
-    margin-bottom: 0%;
+p.error {
+  /* float: right; */
+  margin-top: 0%;
+  text-align: left;
+  color: black;
+  background-color: #f7949c;
+  padding: 3px;
+  border-radius: 3px;
+  margin-left: 0px;
+  width: 47%;
+  margin-bottom: 0%;
 }
-  
 
-input.ng-valid  {
-    border-left: 5px solid #42A948;
-    /* green */
+input.ng-valid {
+  border-left: 5px solid #42a948;
+  /* green */
 }
 
 input.ng-invalid.ng-touched {
-    border-left: 5px solid #A94442;
-    /* red */
+  border-left: 5px solid #a94442;
+  /* red */
 }
 
-
-.like{
-    margin-left: 600px;
-    font-size: 25px;
-    color: black;
+.edit,
+.remove {
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 20px;
+  width: 20%;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  font-size: 20px;
 }
 
+.like {
+  margin-left: 600px;
+  font-size: 25px;
+  color: black;
+}

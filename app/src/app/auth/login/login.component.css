@@ -1,6 +1,6 @@
 fieldset {
-    padding: 30px;
-    max-width: 30%;
+    padding: 50px 50px;
+    max-width: 35%;
     margin: auto;
     background-position: right 35% bottom 45%;
     box-sizing: border-box;
@@ -8,7 +8,7 @@ fieldset {
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
-    background-color: #f7f7f7;;
+    background-color: #f7f7f7;
     border-radius: 15px;
     box-shadow: 0px 0px 30px 0px;
     color: black;
@@ -16,19 +16,19 @@ fieldset {
 }
 
 fieldset legend {
-  font-weight: 700;
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  text-align: center;
-  background: rgb(32, 50, 57);
-  border-width: 1px;
-  box-shadow: 0px 0px 5px 0px;
-  display: block;
-  width: 100%;
-  margin: 0 auto; 
-  box-shadow: 0px 0px 30px 0px;
-  color: white;
+    font-weight: 700;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+    background: blueviolet;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 0px;
+    display: block;
+    width: 100%;
+    margin: 0 auto; 
+    color: white;
 }
 
 
@@ -54,13 +54,14 @@ input[type=text], input[type=password] {
     border-bottom-right-radius: 3px;
 }
 
+form .field {
+    display: flex;
+    width: 100%;
+}
 
 .field span {
   color: black;
 }
-
-
-
 
 select {
     border-color: black;
@@ -78,12 +79,16 @@ button {
 	display: inline;
 	align-items: center;
 	justify-content: center;
-	background-color: rgb(32, 50, 57)   ;
+	background-color:blueviolet  ;
     font-size: 20px;
-    margin-top: 20px; 
-    margin-left: 70px;
     padding: 10px;
     text-decoration: none;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 i {
@@ -95,11 +100,6 @@ i {
 
 }
 
-
-
-form .field {
-    display: flex;
-}
 
 .field {
     margin-top: 3%;

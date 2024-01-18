@@ -1,43 +1,32 @@
 form .field {
-    display: flex;
+  display: flex;
+  width: 100%;
 }
-
-.field {
-    margin-top: 3%;
-    margin-right: 15%;
-
-}
-
 
 /* if error */
 
 p.error {
-    text-align: left;
-    color: black;
-    background-color: #f7949c;
-    padding: 8px;
-    border-radius: 3px;
+  text-align: left;
+  color: black;
+  background-color: #f7949c;
+  padding: 8px;
+  border-radius: 3px;
 }
 
-
-
-
 fieldset {
-    padding: 20px;
-    margin: auto;
-    max-width: 40%;
-    background-position: right 35% bottom 45%;
-    box-sizing: border-box;
-    height: 680px;
-    font-weight: bold;
-    margin-bottom: 70px;
-    margin-top: 20px;
-    background-color: #f7f7f7;
-    border-radius: 15px;
-    box-shadow: 0px 0px 30px 0px;
-    color: black;
-    width: auto;
-    
+  padding: 50px 50px;
+  max-width: 35%;
+  margin: auto;
+  background-position: right 35% bottom 45%;
+  box-sizing: border-box;
+  height: 100%;
+  font-weight: bold;
+  margin-bottom: 70px;
+  margin-top: 20px;
+  background-color: #f7f7f7;
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px 0px;
+  color: black;
 }
 
 fieldset legend {
@@ -46,22 +35,22 @@ fieldset legend {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   text-align: center;
-  background: rgb(32, 50, 57);
+  background: blueviolet;
   border-width: 1px;
-  box-shadow: 0px 0px 5px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px 0px;
   display: block;
   width: 100%;
-  margin: 0 auto; 
-  box-shadow: 0px 0px 30px 0px;
+  margin: 0 auto;
   color: white;
 }
 
-
-input, input + label > i {
+input,
+input + label > i {
   border-radius: 3px;
   box-shadow: none;
   border: 1px solid #384049;
-  background: rgb(238, 237, 222);
+  background: #f7f7f7;
   display: block;
   border-left: 3px solid #42a948;
   width: 100%;
@@ -69,97 +58,88 @@ input, input + label > i {
 }
 
 textarea {
-    width: auto;
-    font-size: 1.2em;
-    line-height: 0.8;
-    flex: 0 1 100%;
-    border: 1px solid;
-    padding: 5px;
-    border-left: 3px solid #42a948;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
- 
+  width: auto;
+  font-size: 1.2em;
+  line-height: 0.8;
+  flex: 0 1 100%;
+  border: 1px solid;
+  padding: 5px;
+  border-left: 3px solid #42a948;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
-input[type=text], input[type=password], input[type=number], input[type=textarea], input[type=url]{
-    /* width: 50%; */
-    font-size: 1.2em;
-    line-height: 1;
-    flex: 0 1 100%;
-    border: 1px solid;
-    padding: 5px;
-    border-left: 3px solid #42a948;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="textarea"],
+input[type="url"] {
+  width: auto;
+  font-size: 1.2em;
+  line-height: 1;
+  flex: 0 1 100%;
+  border: 1px solid;
+  padding: 5px;
+  border-left: 3px solid #42a948;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
-
-
-
 
 .field span {
   color: black;
 }
 
-
-
 select {
-    border-color: black;
+  border-color: black;
 }
 
 button {
-    color: white;
-    border: none;
-    padding: 0.8em 1.2em;
-    width: 40%;
-    height: 50px;
-	cursor: pointer;
-    border: none;
-    border-radius: 10px;
-	/* display:inline-block; */
-	align-items: center;
-	justify-content: center;
-	background-color: rgb(32, 50, 57)   ;
-    font-size: 20px;
-    margin-top: 20px; 
-    margin-left: 110px;
-    padding: 10px;
-    text-decoration: none;
+  color: white;
+  border: none;
+  padding: 0.8em 1.2em;
+  width: 50%;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
+  font-size: 20px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.add-phone {
+  display: flex;
+  justify-content: center;
 }
 
 i {
-    border: 1px solid;
-    border-right: none;
-    padding: 10px;
-    margin-left: 40px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+  border: 1px solid;
+  border-right: none;
+  padding: 10px;
+
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
-
-
-
-  p.error {
-    text-align: left;
-    color: black;
-    background-color: #f7949c;
-    padding: 4px;
-    border-radius: 3px;
-    margin-left: 40px;
+p.error {
+  text-align: left;
+  color: black;
+  background-color: #f7949c;
+  padding: 4px;
+  border-radius: 3px;
+  margin-left: 40px;
 }
 
-
-
-  
-
-input.ng-valid  {
-    border-left: 5px solid #42A948;
-    /* green */
+input.ng-valid {
+  border-left: 5px solid #42a948;
+  /* green */
 }
 
 input.ng-invalid.ng-touched {
-    border-left: 5px solid #A94442;
-    /* red */
+  border-left: 5px solid #a94442;
+  /* red */
 }
-
-
-
