@@ -3,22 +3,15 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
 const auth = require('./middlewares/auth');
-const connectionKey = 'mongodb+srv://pl_petkova:uhnMSpLG0a6mlHkL@phones.0yvvw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
- //const connectionKey = 'mongodb://localhost:27017/phones'
-
-
+require('dotenv').config();
 const cors = require('cors');
+
+const connectionKey = process.env.MONGO_URL;
 
 const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
 
-
-
-
 async function start() {
-    
-
 
     const app = express();
     app.use(express.json());//parser
