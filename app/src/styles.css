@@ -1,7 +1,16 @@
 body {
-    background-color: rgb(224, 221, 170);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(38,40,221,0.6812850140056023) 0%, rgba(196,25,190,1) 100%),
+    url("../src/assets/iphone-3087842_1920.jpg");
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/*
+color-blue: #2628dd;
+color-purple:#c419be;
+color-light-blue: rgba(25,135,196,1)
+*/

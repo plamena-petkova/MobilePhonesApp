@@ -1,29 +1,35 @@
-        <header>
-            <nav>
+<header>
+  <nav>
+    <a routerLink="/">Home</a>
+    <p
+      *ngIf="!!message"
+      [ngClass]="{
+        'error-message': isMessageError,
+        'success-message': !isMessageError
+      }"
+      class="notification"
+    >
+      {{ message }}
+    </p>
 
-                <img src="../../../assets/smartphone.jpg">
-                <a routerLink="/">Home</a>
-                <p *ngIf="!!message" [ngClass]="{'error-message': isMessageError, 'success-message': !isMessageError}" class="notification">{{message}}</p>    
-                
-                <ul>
-                    
-                    <div *ngIf="!(isLoggedIn$ | async)">
-        
-                    <li><a routerLink="/data/">Catalog</a></li>
-                    <li><a routerLink="/auth/login">Login</a></li>
-                    <li><a routerLink="/auth/register">Register</a></li>
-                    </div>
-                    <div *ngIf="(isLoggedIn$ | async)">
-            
-                    <li><a routerLink="/data/">Catalog</a></li>
-                    <li><a routerLink="/data/create">Add mobile phone</a></li>
-                    <li><a routerLink="/auth/profile">{{(currentUser$ | async)?.firstName}}'s Profile</a></li>
-                    <li><a href="javascript:void(0);" (click)="logoutHandler()">Logout</a></li>
-                    
-                    </div>
-                </ul>
-                
-           
-            </nav>
-           
-        </header>
+    <ul>
+      <div *ngIf="!(isLoggedIn$ | async)">
+        <li><a routerLink="/data/">Catalog</a></li>
+        <li><a routerLink="/auth/login">Login</a></li>
+        <li><a routerLink="/auth/register">Register</a></li>
+      </div>
+      <div *ngIf="isLoggedIn$ | async">
+        <li><a routerLink="/data/">Catalog</a></li>
+        <li><a routerLink="/data/create">Add mobile phone</a></li>
+        <li>
+          <a routerLink="/auth/profile"
+            >{{ (currentUser$ | async)?.firstName }}'s Profile</a
+          >
+        </li>
+        <li>
+          <a href="javascript:void(0);" (click)="logoutHandler()">Logout</a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>

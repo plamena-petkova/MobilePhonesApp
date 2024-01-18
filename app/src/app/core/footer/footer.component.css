@@ -1,24 +1,25 @@
-nav,
 footer {
-    background-color: rgb(32, 50, 57) ;
-    width: 100%;
-    display: flex;
-    font-size: 16px;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 0;
-    padding: 0 5px 0 3px;
-    margin: 0%;
-    color: white;
-}
-
-footer {
-    position:fixed;
-    width: 100%;
+    width: 100vw;
     left: 0;
     bottom: 0;
     padding: 10px;
     text-align: center;
-    color: #c5c6c7;
     font-weight: bold;
+
+    color: white;
+    box-shadow: rgba(black, .90);
+}
+
+.btn__socials {
+    background-color: transparent;
+    color:white;
+    border: none;
+    font-size: 16px;
+    margin: 5px;
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.btn__socials:hover {
+    transform: translateY(-4px);
 }
