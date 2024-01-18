@@ -1,10 +1,12 @@
 <section id="catalogPage">
   <h1>Catalog</h1>
-  <div *ngIf="phoneList">
-  <div *ngFor="let phone of phoneList">
-    <app-catalog-card [phone]="phone">
-    </app-catalog-card>
-  </div>
-  <div class='noData' *ngIf="phoneList.length == 0">No phones in database!</div>
+  <div class="catalogCard__container" *ngIf="phoneList">
+    <div *ngFor="let phone of phoneList">
+      <app-catalog-card [phone]="phone"> </app-catalog-card>
+    </div>
+
+    <div class="noData" *ngIf="phoneList.length == 0">
+      No phones in database!
+    </div>
   </div>
 </section>

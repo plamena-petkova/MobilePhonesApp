@@ -1,11 +1,7 @@
 footer {
     width: 100vw;
-    left: 0;
-    bottom: 0;
-    padding: 10px;
     text-align: center;
     font-weight: bold;
-
     color: white;
     box-shadow: rgba(black, .90);
 }

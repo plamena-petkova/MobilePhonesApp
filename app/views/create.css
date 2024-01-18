@@ -1,7 +1,3 @@
-body {
-    background-color: rgb(224, 221, 170);
-    margin-left: 250px;
-}
 
 fieldset {
     padding: 40px;
@@ -14,7 +10,7 @@ fieldset {
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
-    background-color: rgb(238, 237, 222);
+    background-color: #f7f7f7;
 
 }
 

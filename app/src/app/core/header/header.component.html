@@ -14,20 +14,20 @@
 
     <ul>
       <div *ngIf="!(isLoggedIn$ | async)">
-        <li><a routerLink="/data/">Catalog</a></li>
-        <li><a routerLink="/auth/login">Login</a></li>
-        <li><a routerLink="/auth/register">Register</a></li>
+        <li class="btn btn__header"><a routerLink="/data/">Catalog</a></li>
+        <li class="btn btn__header"><a routerLink="/auth/login">Login</a></li>
+        <li class="btn btn__header"><a routerLink="/auth/register">Register</a></li>
       </div>
       <div *ngIf="isLoggedIn$ | async">
-        <li><a routerLink="/data/">Catalog</a></li>
-        <li><a routerLink="/data/create">Add mobile phone</a></li>
+        <li><a class="btn btn__header" routerLink="/data/">Catalog</a></li>
+        <li><a class="btn btn__header" routerLink="/data/create">Add mobile phone</a></li>
         <li>
-          <a routerLink="/auth/profile"
+          <a class="btn btn__header" routerLink="/auth/profile"
             >{{ (currentUser$ | async)?.firstName }}'s Profile</a
           >
         </li>
         <li>
-          <a href="javascript:void(0);" (click)="logoutHandler()">Logout</a>
+          <a class="btn btn__header" href="javascript:void(0);" (click)="logoutHandler()">Logout</a>
         </li>
       </div>
     </ul>

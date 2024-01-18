@@ -1,6 +1,4 @@
-body {
-    background-color: rgb(224, 221, 170);
-}
+
 
 .card-box {
     box-shadow: 0px 0px 30px 0px;
@@ -15,7 +13,7 @@ body {
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
-    background-color: rgb(238, 237, 222);
+    background-color: #f7f7f7;
 }
 
 .btn-group > a {
@@ -115,7 +113,7 @@ input[type=text]:hover {
     width: 25em;
     border-radius: 15px;
     border-color: #4e5966;
-    background-color: rgb(238, 237, 222);
+    background-color: #f7f7f7;
 }
 
 .button-list {
@@ -175,7 +173,7 @@ input[type=text]:hover {
     font-weight: bold;
     margin-bottom: 70px;
     margin-top: 20px;
-    background-color:rgb(238, 237, 222);
+    background-color:#f7f7f7;
 
 }
 

@@ -1,9 +1,19 @@
 #catalogPage h1{
-    color: black;
+    color: white;
     text-align: center;
     margin-top: 30px;
     font-size: 50px;
     
+}
+
+.catalogCard__container {
+    display: flex;
+    width: 95vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
 }
 
 .noData {
@@ -11,3 +21,8 @@
     text-align: center;
 }
 
+#catalogPage {
+    display: flex;
+    flex-direction: column;
+
+}

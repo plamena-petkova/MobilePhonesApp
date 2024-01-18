@@ -1,45 +1,59 @@
-
 <form (ngSubmit)="loginHandle()" #loginForm="ngForm">
   <fieldset>
     <legend>Login</legend>
     <p class="field field-icon">
-      <label for="email"><span><i class="fas fa-user"></i></span></label>
-      <input ngModel #email="ngModel" required pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]+" type="text" name="email" id="email" placeholder="Email">
+      <label for="email"
+        ><span><i class="fas fa-user"></i></span
+      ></label>
+      <input
+        ngModel
+        #email="ngModel"
+        required
+        pattern="[a-z0-9]+@[a-z0-9]+\.[a-z]+"
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Email"
+      />
     </p>
     <ng-container *ngIf="email.invalid && email.touched">
-      <p *ngIf="email.errors?.['required']" class="error">
-          Email is required!
-      </p>
+      <p *ngIf="email.errors?.['required']" class="error">Email is required!</p>
 
-      <p *ngIf="email.errors?.['pattern']" class="error">
-          Email is not valid!
-      </p>
-  </ng-container>
-
-  
+      <p *ngIf="email.errors?.['pattern']" class="error">Email is not valid!</p>
+    </ng-container>
 
     <p class="field field-icon">
-      <label for="password"><span><i class="fas fa-lock"></i></span></label>
-      <input ngModel #password="ngModel" required minlength="6" type="password" name="password" id="password" placeholder="Password">
+      <label for="password"
+        ><span><i class="fas fa-lock"></i></span
+      ></label>
+      <input
+        ngModel
+        #password="ngModel"
+        required
+        minlength="6"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      />
     </p>
     <ng-container *ngIf="password.invalid && password.touched">
       <p *ngIf="password.errors?.['required']" class="error">
-          Password is required!
+        Password is required!
       </p>
       <p *ngIf="password.errors?.['minlength']" class="error">
         Password must be more than 6 symbols!
-    </p>
-  </ng-container>
-
-
-   
-    <button [disabled]="loginForm.invalid" type="submit" class="login">Login</button>
-    <p class="field">
-        <span>If you don't have profile click <a routerLink="/auth/register">here</a></span>
       </p>
+    </ng-container>
 
-    
+    <button [disabled]="loginForm.invalid" type="submit" class="login">
+      Login
+    </button>
+    <p class="field">
+      <span
+        >If you don't have profile click
+        <a routerLink="/auth/register">here</a></span
+      >
+    </p>
   </fieldset>
 </form>
-
-
