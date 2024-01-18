@@ -16,11 +16,9 @@ export class AuthService {
   isLogged: boolean = false;
   newUser!: IUser
 
-  portLink = 'https://mobilephonesapp.onrender.com'
+  portLink = 'http://localhost:3000'
     
     constructor(private http: HttpClient) {}
-
-
 
     register$(userData: IUser): Observable<IUser> {
         return this.http.post<IUser>(`${this.portLink}/auth/register`, userData, { withCredentials: true })
