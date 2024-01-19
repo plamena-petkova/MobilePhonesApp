@@ -1,19 +1,102 @@
 .welcome__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-  
-  .welcome {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   text-align: center;
-   color: white;
-   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: white;
+  margin: 20px;
+}
 
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 40px;
+  display: inline-block;
+  border-radius: 50px;
+  transition: all 0.2s;
+  position: relative;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
 
+.btn--animated {
+  animation: moveInBottom 0.5s ease-out;
+  animation-delay: 0.75s;
+  animation-fill-mode: backwards;
+}
 
+.btn:hover,
+.btn:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(black, 0.2);
+}
+
+.btn::after {
+  content: "";
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn:active {
+  outline: none;
+  transform: translateY(1px);
+
+  box-shadow: 0 5px 10px rgba(black, 0.2);
+}
+
+.btn--white {
+  background-color: white;
+  color: grey;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+@keyframes moveInBottom {
+  0% {
+      opacity: 0;
+      transform: translateY(3rem);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translate(0);
+  }
+
+}
+
+.carousel-container {
+  padding: 40px;
+  margin: 40px auto;
+  width: 50vw;
+
+}
+
+.carousel-container img {
+  width: 80%;
+}
+
+.wrapper {
+  border-radius: 50px;
+}

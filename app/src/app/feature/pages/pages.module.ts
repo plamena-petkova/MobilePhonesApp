@@ -7,6 +7,7 @@ import { FeatureModule } from '../feature.module';
 import { CatalogComponent } from '../catalog/catalog.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { RouterModule } from '@angular/router';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    CarouselModule
   ],
   exports: [
     HomePageComponent,

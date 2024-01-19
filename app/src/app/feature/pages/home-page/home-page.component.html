@@ -1,8 +1,22 @@
 <div class="welcome">
-  <h1 class="welcome__text" >WELCOME TO MOBILE <span>PHONES CATALOG!</span></h1>
-  <div>
-  
-   
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main"> WELCOME TO MOBILE </span>
+      <span class="heading-primary--sub"> PHONES CATALOG! </span>
+    </h1>
+    <a routerLink="/data/" class="btn btn--white btn--animated">See catalog</a>
   </div>
-  
+  <div class="carousel-container">
+    <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide
+        ><img src="../../../../assets/Huawei-P-Smart-2021.jpg" alt="phone 1"
+      /></ng-template>
+      <ng-template carouselSlide
+        ><img src="../../../../assets/iphone-3087842_1920.jpg" alt="phone 2"
+      /></ng-template>
+      <ng-template carouselSlide
+        ><img src="../../../../assets/samsung_A71_.jpg" alt="phone 3"
+      /></ng-template>
+    </owl-carousel-o>
+  </div>
 </div>
