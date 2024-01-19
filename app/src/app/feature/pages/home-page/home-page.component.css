@@ -1,14 +1,16 @@
 .welcome__text {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
   
   .welcome {
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    justify-content: space-between;
    text-align: center;
    color: white;
+   margin: 20px;
 }
 
 
