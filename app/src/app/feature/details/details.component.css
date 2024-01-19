@@ -25,11 +25,10 @@ input + label > i {
   border-radius: 3px;
   box-shadow: none;
   border: 1px solid #384049;
-  background: rgb(238, 237, 222);
+  background:#f7f7f7;
   display: block;
   width: 100%;
   color: black;
-  /* margin-right: 80%; */
 }
 
 .phoneText {
@@ -72,7 +71,9 @@ input.ng-invalid.ng-touched {
 }
 
 .edit,
-.remove {
+.remove,
+.save,
+.like__btn {
   color: white;
   border: none;
   padding: 10px;

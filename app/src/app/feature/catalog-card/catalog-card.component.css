@@ -10,12 +10,15 @@
   background-color: #f7f7f7;
 }
 
-.box-img img {
-  width: 200px;
-  height: 200px;
+
+.phone__img {
+  width: 60%;
 }
 
 .card-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   max-width: 20vw;
   height: 70vh;
 }
