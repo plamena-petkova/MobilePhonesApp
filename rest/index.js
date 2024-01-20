@@ -6,8 +6,9 @@ const auth = require('./middlewares/auth');
 require('dotenv').config();
 const connectionKey = process.env.MONGO_URL;
 const compression = require("compression");
+const path = require('path');
 
-
+console.log('KEY', connectionKey);
 
 const cors = require('cors');
 
@@ -34,7 +35,7 @@ async function start() {
     app.use(express.static('static'));
     app.use(compression());
 
-    app.use(express.static(path.join(__dirname, "public")));
+    app.use(express.static(path.join(__dirname, "dist")));
     
     
 
