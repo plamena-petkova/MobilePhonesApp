@@ -16,7 +16,7 @@ export class AuthService {
   isLogged: boolean = false;
   newUser!: IUser
 
-  portLink = 'https://mobile-phones-catalog.onrender.com/'
+  portLink = 'https://mobile-phones-catalog.onrender.com'
     
     constructor(private http: HttpClient) {}
 
