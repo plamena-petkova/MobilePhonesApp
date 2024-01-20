@@ -5,7 +5,7 @@ const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
 const auth = require('./middlewares/auth');
 require('dotenv').config();
 const connectionKey = process.env.MONGO_URL;
-
+const compression = require("compression");
 
 
 
@@ -32,7 +32,9 @@ async function start() {
     app.use('/data', catalogController);
     app.use('/auth', usersController);
     app.use(express.static('static'));
+    app.use(compression());
 
+    app.use(express.static(path.join(__dirname, "public")));
     
     
 
@@ -53,6 +55,23 @@ async function start() {
         process.exit(1);
     }
 
+    // --------------------------deployment------------------------------
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "app/dist/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "app", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------
 
 
 }
