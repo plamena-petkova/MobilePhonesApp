@@ -52,10 +52,10 @@ async function start() {
 
 const __dirname1 = path.resolve();
 
-app.use(express.static(path.join(__dirname1, "app/dist/app")));
+app.use(express.static(path.join(__dirname1, "app/dist")));
 
 app.get("*", (req, res) =>
-res.sendFile(path.resolve(__dirname1 + "app/dist/app/index.html"))
+res.sendFile(path.resolve(__dirname1 + "app/dist/index.html"))
   );
 
 
