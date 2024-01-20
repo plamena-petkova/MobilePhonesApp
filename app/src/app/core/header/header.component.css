@@ -22,7 +22,7 @@ ul li {
 }
 
 .btn__header:hover {
-    transform: translateY(30px);
+    transform: translateY(5px);
 }
 
 nav a {
@@ -41,7 +41,33 @@ nav a:hover {
     color: rebeccapurple;
 }
 
+@media screen and (max-width: 600px) {
+    header {
+        margin: 0 auto;
+    }
+    nav {
+      flex-direction: column;
+    }
+    ul li {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
 
+    }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        position: relative;
+        padding: 0 40px;
+        transition: all .2s;
+    }
+    .home {
+        margin-left: 20px;
+    }
+  }
 
 
 

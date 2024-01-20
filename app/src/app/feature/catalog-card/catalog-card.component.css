@@ -44,8 +44,14 @@
   margin-bottom: 30px;
 }
 
+@media screen and (max-width: 1000px) {
+  .card-box {
+    min-width: 30vw;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .card-box {
-    width: 60%;
+    min-width: 50vw;
   }
 }

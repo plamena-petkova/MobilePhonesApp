@@ -6,3 +6,9 @@
     width: 100%;
     color: white;
 }
+
+@media screen and (max-width: 600px) {
+    .home__page {
+        margin: 0;
+    }
+  }
