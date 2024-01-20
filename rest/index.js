@@ -52,7 +52,7 @@ async function start() {
   
 // --------------------------deployment------------------------------
 
-const __dirname = path.resolve();
+const __dirname1 = path.resolve();
 
 app.use(express.static(path.join(__dirname1, "app/dist/app")));
 
