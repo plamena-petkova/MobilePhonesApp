@@ -5,6 +5,7 @@ const auth = require('./middlewares/auth');
 require('dotenv').config();
 const path = require("path");
 const connectionKey = process.env.MONGO_URL;
+const cookieSecret = process.env.COOKIESECRET;
 
 
 const cors = require('cors');
@@ -51,19 +52,14 @@ async function start() {
   
 // --------------------------deployment------------------------------
 
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "dist/app")));
+app.use(express.static(path.join(__dirname, "/dist/app")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "dist/app", "build", "index.html"))
+app.get("/*", (req, res) =>
+    res.sendFile(path.join(__dirname + "/dist/app/index.html"))
   );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running..");
-  });
-}
+
 
 // --------------------------deployment------------------------------
 
