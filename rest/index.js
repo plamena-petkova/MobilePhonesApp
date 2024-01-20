@@ -1,14 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const cookieSecret = process.env.COOKIESECRET || 'SoftUni';
 const auth = require('./middlewares/auth');
 require('dotenv').config();
 const connectionKey = process.env.MONGO_URL;
-const compression = require("compression");
-const path = require('path');
 
-console.log('KEY', connectionKey);
 
 const cors = require('cors');
 
@@ -33,11 +29,7 @@ async function start() {
     app.use('/data', catalogController);
     app.use('/auth', usersController);
     app.use(express.static('static'));
-    app.use(compression());
 
-    app.use(express.static(path.join(__dirname, "dist")));
-    
-    
 
     app.get('/', (req, res)=> res.json({message:'Rest service operational'}))
     app.listen(3000, () => console.log('Rest service listening on port 3000'))
@@ -51,8 +43,7 @@ async function start() {
         });
         console.log('Database ready');
     } catch(err) {
-        console.log('ERR', err);
-        console.error('Database connection failed!');
+        console.error('Database connection failed!', err);
         process.exit(1);
     }
 

@@ -90,13 +90,11 @@
   padding: 40px;
   margin: 40px auto;
   width: 50vw;
-
+  height: auto;
 }
 
 .carousel-container img {
   width: 80%;
-}
-
-.wrapper {
-  border-radius: 50px;
+  align-items: center;
+  border-radius: 30px;
 }
