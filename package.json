@@ -2,11 +2,11 @@
   "name": "rest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "rest/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node rest/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix static && npm run build --prefix static"
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix app/dist/app && npm run build --prefix app/dist/app"
   },
   "keywords": [],
   "author": "",
