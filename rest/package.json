@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd app && npm run build"
+    "build": "cd.. cd app && npm run build"
   },
   "keywords": [],
   "author": "",
