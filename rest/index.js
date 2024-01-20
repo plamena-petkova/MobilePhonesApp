@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const auth = require('./middlewares/auth');
 require('dotenv').config();
+const path = require("path");
 const connectionKey = process.env.MONGO_URL;
 
 
@@ -11,7 +12,7 @@ const cors = require('cors');
 const catalogController = require('./controllers/catalog')
 const usersController = require('./controllers/users');
 
-async function start() {
+async function start() {    
     
     const app = express();
     app.use(express.json());//parser
@@ -48,7 +49,23 @@ async function start() {
     }
 
   
+// --------------------------deployment------------------------------
 
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "app/dist/app")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname1, "app/dist/app", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------
 
 }
 
