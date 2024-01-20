@@ -34,9 +34,7 @@ async function start() {
 
 
     app.get('/', (req, res)=> res.json({message:'Rest service operational'}))
-    app.listen(process.env.PORT, () => console.log(`Rest service listening on port ${process.env.PORT}`));
-    app.listen(process.env.PORT)
-
+    app.listen(5000, () => console.log('Rest service listening on port 5000'));
 
     try {
         await mongoose.connect(connectionKey, {
