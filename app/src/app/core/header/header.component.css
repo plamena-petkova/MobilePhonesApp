@@ -65,7 +65,11 @@ nav a:hover {
         transition: all .2s;
     }
     .home {
-        margin-left: 10px;
+        margin-left: -10px;
+    }
+    .home-list-btn {
+        padding: 0;
+        margin: 0;
     }
   }
 
@@ -93,7 +97,11 @@ nav a:hover {
         transition: all .2s;
     }
     .home {
-        margin-left: 20px;
+        margin-left: -10px;
+    }
+    .home-list-btn {
+        padding: 0;
+        margin: 0;
     }
   }
 

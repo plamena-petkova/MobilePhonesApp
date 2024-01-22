@@ -14,7 +14,7 @@
       {{ message }}
     </p>
 
-    <ul>
+    <ul class="home-list-btn">
       <div *ngIf="!(isLoggedIn$ | async)">
         <li class="btn btn__header"><a routerLink="/data/">Catalog</a></li>
         <li class="btn btn__header"><a routerLink="/auth/login">Login</a></li>
